@@ -1,0 +1,22 @@
+{
+  "name": "quasar-app-extension-auth-token-based",
+  "version": "0.0.1",
+  "description": "Token based authentication for Quasar Framework",
+  "author": "Stefan van Herwijnen",
+  "license": "MIT",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"No test specified\" && exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stefanvanherwijnen/quasar-app-extension-auth-token-based"
+  },
+  "bugs": "https://github.com/stefanvanherwijnen/quasar-app-extension-auth-token-based/issues",
+  "homepage": "",
+  "engines": {
+    "node": ">= 8.9.0",
+    "npm": ">= 5.6.0",
+    "yarn": ">= 1.6.0"
+  }
+}
