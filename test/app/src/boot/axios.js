@@ -9,6 +9,21 @@ const axiosInstance = axios.create({
   baseURL: 'http://127.0.0.1:3000'
 })
 
+const setErrorInterceptor = (errorFunction) => {
+  axiosInstance.interceptors.response.use((response) => {
+    return response
+  }, (error) => {
+    if (!error.response) {
+      errorFunction()
+    }
+    return Promise.reject(error)
+  })
+}
+
+const setBaseUrl = (baseURL) => {
+  axiosInstance.params.baseURL = baseURL
+}
+
 Vue.prototype.$axios = axiosInstance
 
-export { axiosInstance }
+export { axiosInstance, setErrorInterceptor, setBaseUrl }
