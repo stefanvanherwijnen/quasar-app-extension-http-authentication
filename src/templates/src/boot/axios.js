@@ -21,7 +21,7 @@ const setErrorInterceptor = (errorFunction) => {
 }
 
 const setBaseUrl = (baseURL) => {
-  axiosInstance.params.baseURL = baseURL
+  axiosInstance.defaults.baseURL = baseURL
 }
 
 Vue.prototype.$axios = axiosInstance
