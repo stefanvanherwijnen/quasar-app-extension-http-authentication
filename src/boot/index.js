@@ -87,7 +87,7 @@ export default ({ app, router, store, Vue }) => {
 
   router.addRoutes([routeData])
 
-  app.created = () => {
+  app.mounted = () => {
     store.dispatch('auth/fetch').catch(() => {
       store.dispatch('auth/logout')
     })
