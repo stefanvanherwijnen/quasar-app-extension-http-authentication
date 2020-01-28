@@ -20,24 +20,29 @@ export default ({ app, router, store, Vue }) => {
   router.beforeEach((to, from, next) => {
     const record = to.matched.find(record => record.meta.auth)
     if (record) {
-      store.dispatch('auth/fetch').then(() => {
-        if (!store.getters['auth/loggedIn']) {
-          router.push('/')
-        } else if (
-          isArrayOrString(record.meta.auth) &&
-          !store.getters['auth/check'](record.meta.auth)
-        ) {
-          router.push('/account')
-        }
-      }).catch(err => {
-        console.error(err)
-        router.push('/')
-      }).finally(() => {
-        next()
-      })
-    } else {
-      next()
+      if (!store.getters['auth/loggedIn']) {
+        return store.dispatch('auth/fetch').then((data) => {
+          if (!store.getters['auth/loggedIn']) {
+            next('/')
+          } else if (
+            isArrayOrString(record.meta.auth) &&
+            !store.getters['auth/check'](record.meta.auth)
+          ) {
+            next('/account')
+          } else {
+            next()
+          }
+        }).catch(err => {
+          next('/')
+        })
+      } else if (
+        isArrayOrString(record.meta.auth) &&
+        !store.getters['auth/check'](record.meta.auth)
+      ) {
+        return next('/account')
+      }
     }
+    next()
   })
 
   /**

@@ -57,6 +57,10 @@ export async function fetch (state) {
     }).then(() => {
       state.dispatch('loginCallback')
     })
+  } else {
+    return new Promise((resolve, reject) => {
+      reject('No authorization token found')
+    })
   }
 }
 
