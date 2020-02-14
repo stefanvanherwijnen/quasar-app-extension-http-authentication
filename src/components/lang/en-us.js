@@ -3,8 +3,12 @@ export default {
     submit: 'Submit',
     myAccount: 'My account',
     navigation: 'Navigation',
-    email: 'Email',
-    username: 'Username',
+    fields: {
+      email: 'Email',
+      username: 'Username',
+      password: 'Password',
+      repeatPassword: 'Repeat password'
+    },
     login: {
       login: 'Login',
       passwordForgot: 'Forgot your password?',
@@ -23,7 +27,6 @@ export default {
         'Email address is already registered. Please check your email for verification.',
       accountCreated:
         'Please check your email to verify your registration. This sometimes can take up to 10 minutes. Please check the spam folder if the email has not been received.',
-      repeatPassword: 'Repeat password',
       checkEmail: (email) => `You want to register with the email address ${email}, is this correct?`,
       error: 'Something went wrong.'
     },
@@ -38,7 +41,6 @@ export default {
       cancel: 'Cancel'
     },
     password: {
-      password: 'Password',
       forgot: {
         header: 'Request a new password',
         checkEmail: 'Please check your email to reset your password. If you do not receive an email, make sure your email adres is registered.',

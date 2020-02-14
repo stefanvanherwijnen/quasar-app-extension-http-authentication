@@ -50,7 +50,8 @@ export default ({ app, router, store, Vue }) => {
   */
   let { routes } = router.options
   let routeData = routes.find(r => r.path === '/')
-  routeData.children = [
+  const currentRoutes = routeData.children.map(route => route.path)
+  const newRoutes = [
     {
       path: '/login',
       name: 'login',
@@ -89,7 +90,12 @@ export default ({ app, router, store, Vue }) => {
       ]
     }
   ]
-
+  routeData.children = []
+  for (let route of newRoutes) {
+    if (!currentRoutes.includes(route.path)) {
+      routeData.children.push(route)
+    }
+  }
   router.addRoutes([routeData])
 
   app.mounted = () => {

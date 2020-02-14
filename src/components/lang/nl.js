@@ -3,8 +3,12 @@ export default {
     submit: 'Versturen',
     myAccount: 'Mijn account',
     navigation: 'Navigatie',
-    email: 'Email',
-    username: 'Gebruikersnaam',
+    fields: {
+      email: 'Email',
+      username: 'Gebruikersnaam',
+      password: 'Wachtwoord',
+      repeatPassword: 'Herhaal wachtwoord'
+    },
     login: {
       login: 'Inloggen',
       passwordForgot: 'Wachtwoord vergeten?',
@@ -23,7 +27,6 @@ export default {
         'Email adres is al geregistreerd. Controleer uw email voor verificatie.',
       accountCreated:
         'Controleer uw email om uw registratie te bevestigen. Dit kan soms tot 10 minuten in beslag nemen. Controleert u ook de ongewenste email.',
-      repeatPassword: 'Herhaal wachtwoord',
       checkEmail: (email) => `U wilt registreren met email adres: ${email}, is dit correct?`,
       error: 'Er ging iets mis.'
     },
@@ -38,7 +41,6 @@ export default {
       cancel: 'Annuleren'
     },
     password: {
-      password: 'Wachtwoord',
       forgot: {
         header: 'Nieuw wachtwoord aanvragen.',
         checkEmail: 'Controleer a.u.b. uw email om een nieuw wachtwoord in te stellen. Mocht u geen email ontvangen, controleer dan of uw email adres wel geregistreerd is.',

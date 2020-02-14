@@ -20,7 +20,7 @@
             id="email"
             v-model.trim="data.body.email"
             type="email"
-            :label="lang.auth.email"
+            :label="lang.auth.fields.email"
             :rules="validations['email']"
             lazy-rules
             autofocus
@@ -29,7 +29,7 @@
             v-if="identifierField === 'username'"
             v-model.trim="data.body.username"
             type="text"
-            :label="lang.auth.username"
+            :label="lang.auth.fields.username"
             :rules="validations['username']"
             lazy-rules
           />
@@ -37,7 +37,7 @@
             id="password"
             v-model="data.body.password"
             type="password"
-            :label="lang.auth.password.password"
+            :label="lang.auth.fields.password"
             :rules="validations['password']"
             lazy-rules
           /><br>
