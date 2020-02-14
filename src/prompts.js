@@ -20,19 +20,19 @@ module.exports = function () {
     },
     {
       name: 'identifierField',
-      type: 'input',
+      type: 'list',
       required: true,
       message: 'Field to identify an account (email or username)',
       choices: [
         {
-          name: 'Email)',
-          value: 'email', // value of the answer variable
-          short: 'Email' // Short name displayed after user picks this
+          name: 'Email',
+          value: 'email',
+          short: 'Email'
         },
         {
           name: 'Username',
-          value: 'username', // value of the answer variable
-          short: 'Username' // Short name displayed after user picks this
+          value: 'username',
+          short: 'Username'
         }
       ],
       default: 'email'
