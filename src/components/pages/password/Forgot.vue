@@ -39,7 +39,7 @@
 </template>
 
 <script>
-import isEmail from 'validator/lib/isEmail'
+import isEmail from 'validator/es/lib/isEmail'
 
 export default {
   name: 'PasswordForgot',

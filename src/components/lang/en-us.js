@@ -4,14 +4,13 @@ export default {
     myAccount: 'My account',
     navigation: 'Navigation',
     email: 'Email',
+    username: 'Username',
     login: {
       login: 'Login',
       passwordForgot: 'Forgot your password?',
       verificationRequired:
         'Please check your email and verify your account first.',
       invalidCredentials: 'Email address or password is incorrect.',
-      email: 'Email',
-      password: 'Password',
       rememberMe: 'Remember me',
       registerMessage: 'You have not created an account yet?',
       register: 'Register here.'
@@ -24,8 +23,6 @@ export default {
         'Email address is already registered. Please check your email for verification.',
       accountCreated:
         'Please check your email to verify your registration. This sometimes can take up to 10 minutes. Please check the spam folder if the email has not been received.',
-      name: 'Name',
-      password: 'Password',
       repeatPassword: 'Repeat password',
       checkEmail: (email) => `You want to register with the email address ${email}, is this correct?`,
       error: 'Something went wrong.'
@@ -41,6 +38,7 @@ export default {
       cancel: 'Cancel'
     },
     password: {
+      password: 'Password',
       forgot: {
         header: 'Request a new password',
         checkEmail: 'Please check your email to reset your password. If you do not receive an email, make sure your email adres is registered.',
@@ -56,7 +54,8 @@ export default {
       required: 'Field is required.',
       passwordLength: (length) => `The minimum length of the password is ${length} characters.`,
       passwordMatch: 'Passwords do not match.',
-      email: 'A valid email address is required.'
+      email: 'A valid email address is required.',
+      username: 'A username may only contain alphanumeric characters.'
     }
   }
 }

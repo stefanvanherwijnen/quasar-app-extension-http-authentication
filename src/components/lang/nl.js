@@ -4,14 +4,13 @@ export default {
     myAccount: 'Mijn account',
     navigation: 'Navigatie',
     email: 'Email',
+    username: 'Gebruikersnaam',
     login: {
       login: 'Inloggen',
       passwordForgot: 'Wachtwoord vergeten?',
       verificationRequired:
         'Controleer a.u.b. uw email en verifieer eerst uw account',
       invalidCredentials: 'Email adres of wachtwoord is incorrect',
-      email: 'Email',
-      password: 'Wachtwoord',
       rememberMe: 'Onthoud mij',
       registerMessage: 'Heeft u nog geen account aangemaakt?',
       register: 'Registreer hier.'
@@ -24,8 +23,6 @@ export default {
         'Email adres is al geregistreerd. Controleer uw email voor verificatie.',
       accountCreated:
         'Controleer uw email om uw registratie te bevestigen. Dit kan soms tot 10 minuten in beslag nemen. Controleert u ook de ongewenste email.',
-      name: 'Naam',
-      password: 'Wachtwoord',
       repeatPassword: 'Herhaal wachtwoord',
       checkEmail: (email) => `U wilt registreren met email adres: ${email}, is dit correct?`,
       error: 'Er ging iets mis.'
@@ -41,6 +38,7 @@ export default {
       cancel: 'Annuleren'
     },
     password: {
+      password: 'Wachtwoord',
       forgot: {
         header: 'Nieuw wachtwoord aanvragen.',
         checkEmail: 'Controleer a.u.b. uw email om een nieuw wachtwoord in te stellen. Mocht u geen email ontvangen, controleer dan of uw email adres wel geregistreerd is.',
@@ -56,7 +54,8 @@ export default {
       required: 'Veld is vereist.',
       passwordLength: (length) => `Het wachtwoord moet minimaal ${length} tekens lang zijn.`,
       passwordMatch: 'Wachtwoorden komen niet overeen.',
-      email: 'Ongeldig email adres.'
+      email: 'Ongeldig email adres.',
+      username: 'Een gebruikersnaam mag alleen alphanumerieke tekens bevatten.'
     }
   }
 }

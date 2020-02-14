@@ -18,6 +18,7 @@
       >
         <q-card-section>
           <q-input
+            v-if="identifierField === 'email'"
             id="email"
             v-model.trim="data.email"
             type="email"
@@ -28,17 +29,18 @@
             lazy-rules
           />
           <q-input
-            v-model.trim="data.name"
+            v-if="identifierField === 'username'"
+            v-model.trim="data.username"
             type="text"
-            :label="lang.auth.register.name"
-            :rules="validations['name']"
+            :label="lang.auth.username"
+            :rules="validations['username']"
             lazy-rules
           />
           <q-input
             id="password"
             v-model="data.password"
             type="password"
-            :label="lang.auth.register.password"
+            :label="lang.auth.password.password"
             bottom-slots
             :rules="validations['password']"
             lazy-rules
@@ -71,8 +73,11 @@
 </style>
 
 <script>
-import isEmail from 'validator/lib/isEmail'
-import equals from 'validator/lib/equals'
+import prompts from 'app/quasar.extensions.json'
+
+import isEmail from 'validator/es/lib/isEmail'
+import equals from 'validator/es/lib/equals'
+import isAlphanumeric from 'validator/es/lib/isAlphanumeric'
 
 const minPasswordLength = 8
 
@@ -84,7 +89,7 @@ export default {
         auth: {}
       },
       data: {
-        name: '',
+        username: '',
         email: '',
         password: '',
         repeatPassword: ''
@@ -96,7 +101,10 @@ export default {
           val => !!val || this.lang.auth.validations.required,
           val => isEmail(val) || this.lang.auth.validations.email
         ],
-        name: [val => !!val || this.lang.auth.validations.required],
+        username: [
+          val => !!val || this.lang.auth.validations.required,
+          val => isAlphanumeric(val) || this.lang.auth.validations.username
+        ],
         password: [
           val => !!val || this.lang.auth.validations.required,
           val =>
@@ -109,7 +117,8 @@ export default {
             equals(val, this.data.password) ||
             this.lang.auth.validations.passwordMatch
         ]
-      }
+      },
+      identifierField: prompts['auth-token-based'].identifierField
     }
   },
   watch: {
