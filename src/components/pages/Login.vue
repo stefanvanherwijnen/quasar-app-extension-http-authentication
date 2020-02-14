@@ -16,19 +16,28 @@
       >
         <q-card-section>
           <q-input
+            v-if="identifierField === 'email'"
             id="email"
             v-model.trim="data.body.email"
             type="email"
-            :label="lang.auth.email"
+            :label="lang.auth.fields.email"
             :rules="validations['email']"
             lazy-rules
             autofocus
           />
           <q-input
+            v-if="identifierField === 'username'"
+            v-model.trim="data.body.username"
+            type="text"
+            :label="lang.auth.fields.username"
+            :rules="validations['username']"
+            lazy-rules
+          />
+          <q-input
             id="password"
             v-model="data.body.password"
             type="password"
-            :label="lang.auth.login.password"
+            :label="lang.auth.fields.password"
             :rules="validations['password']"
             lazy-rules
           /><br>
@@ -62,7 +71,9 @@
 </template>
 
 <script>
-import isEmail from 'validator/lib/isEmail'
+import prompts from 'app/quasar.extensions.json'
+
+import isEmail from 'validator/es/lib/isEmail'
 
 export default {
   name: 'Login',
@@ -84,8 +95,12 @@ export default {
           val => !!val || this.lang.auth.validations.required,
           val => isEmail(val) || this.lang.auth.validations.email
         ],
+        username: [
+          val => !!val || this.lang.auth.validations.required
+        ],
         password: [val => !!val || this.lang.auth.validations.required]
-      }
+      },
+      identifierField: prompts['auth-token-based'].identifierField
     }
   },
   watch: {

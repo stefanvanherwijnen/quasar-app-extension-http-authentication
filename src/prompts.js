@@ -19,6 +19,25 @@ module.exports = function () {
       default: 'http://127.0.0.1:3000'
     },
     {
+      name: 'identifierField',
+      type: 'list',
+      required: true,
+      message: 'Field to identify an account (email or username)',
+      choices: [
+        {
+          name: 'Email',
+          value: 'email',
+          short: 'Email'
+        },
+        {
+          name: 'Username',
+          value: 'username',
+          short: 'Username'
+        }
+      ],
+      default: 'email'
+    },
+    {
       name: 'registerRoute',
       type: 'input',
       required: true,

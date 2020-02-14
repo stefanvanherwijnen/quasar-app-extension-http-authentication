@@ -18,27 +18,33 @@
       >
         <q-card-section>
           <q-input
+            v-if="identifierField === 'email'"
             id="email"
             v-model.trim="data.email"
             type="email"
-            :label="lang.auth.email"
+            :label="lang.auth.fields.email"
             bottom-slots
             autofocus
             :rules="validations['email']"
             lazy-rules
           />
           <q-input
-            v-model.trim="data.name"
+            v-if="identifierField === 'username'"
+            v-model.trim="data.username"
             type="text"
-            :label="lang.auth.register.name"
-            :rules="validations['name']"
+            :label="lang.auth.fields.username"
+            :rules="validations['username']"
             lazy-rules
+          />
+          <slot
+            name="extraFields"
+            :data="data"
           />
           <q-input
             id="password"
             v-model="data.password"
             type="password"
-            :label="lang.auth.register.password"
+            :label="lang.auth.fields.password"
             bottom-slots
             :rules="validations['password']"
             lazy-rules
@@ -47,7 +53,7 @@
             id="repeatPassword"
             v-model="data.repeatPassword"
             type="password"
-            :label="lang.auth.register.repeatPassword"
+            :label="lang.auth.fields.repeatPassword"
             bottom-slots
             required
             :rules="validations['repeatPassword']"
@@ -71,37 +77,51 @@
 </style>
 
 <script>
-import isEmail from 'validator/lib/isEmail'
-import equals from 'validator/lib/equals'
+import prompts from 'app/quasar.extensions.json'
 
-const minPasswordLength = 8
+import isEmail from 'validator/es/lib/isEmail'
+import equals from 'validator/es/lib/equals'
+import isAlphanumeric from 'validator/es/lib/isAlphanumeric'
 
 export default {
   name: 'Register',
+  props: {
+    extraFields: {
+      type: Object,
+      default: () => ({})
+    },
+    minPasswordLength: {
+      type: Number,
+      default: 8
+    }
+  },
   data () {
     return {
       lang: {
         auth: {}
       },
       data: {
-        name: '',
+        username: '',
         email: '',
         password: '',
-        repeatPassword: ''
+        repeatPassword: '',
+        ...this.extraFields
       },
       loading: false,
-      minPasswordLength: minPasswordLength,
       validations: {
         email: [
           val => !!val || this.lang.auth.validations.required,
           val => isEmail(val) || this.lang.auth.validations.email
         ],
-        name: [val => !!val || this.lang.auth.validations.required],
+        username: [
+          val => !!val || this.lang.auth.validations.required,
+          val => isAlphanumeric(val) || this.lang.auth.validations.username
+        ],
         password: [
           val => !!val || this.lang.auth.validations.required,
           val =>
-            val.length > minPasswordLength ||
-            this.lang.auth.validations.passwordLength(minPasswordLength)
+            val.length > this.minPasswordLength ||
+            this.lang.auth.validations.passwordLength(this.minPasswordLength)
         ],
         repeatPassword: [
           val => !!val || this.lang.auth.validations.required,
@@ -109,7 +129,8 @@ export default {
             equals(val, this.data.password) ||
             this.lang.auth.validations.passwordMatch
         ]
-      }
+      },
+      identifierField: prompts['auth-token-based'].identifierField
     }
   },
   watch: {
@@ -132,46 +153,53 @@ export default {
         this.lang['auth'] = { ...lang.default.auth }
       }
     },
-    onSubmit () {
-      this.$q.dialog({
-        message: this.lang.auth.register.checkEmail(this.data.email),
-        cancel: true
-      })
-        .onOk(() => {
-          this.loading = true
-          this.$auth
-            .register(this.data)
-            .then(() => {
-              this.$q
-                .dialog({
-                  message: this.lang.auth.register.accountCreated
-                })
-                .onOk(data => {
-                  this.$router.push('/login')
-                })
+    register () {
+      this.loading = true
+      this.$auth
+        .register(this.data)
+        .then(() => {
+          this.$q
+            .dialog({
+              message: this.lang.auth.register.accountCreated
             })
-            .catch(error => {
-              if (error.response) {
-                if (error.response.status === 422) {
-                  this.$q.dialog({
-                    message: this.lang.auth.register.invalidData
-                  })
-                } else if (error.response.status === 409) {
-                  this.$q.dialog({
-                    message: this.lang.auth.register.alreadyRegistered
-                  })
-                } else {
-                  this.$q.dialog({
-                    message: this.lang.auth.register.error
-                  })
-                  console.error(error)
-                }
-              }
-            })
-            .finally(() => {
-              this.loading = false
+            .onOk(data => {
+              this.$router.push('/login')
             })
         })
+        .catch(error => {
+          if (error.response) {
+            if (error.response.status === 422) {
+              this.$q.dialog({
+                message: this.lang.auth.register.invalidData
+              })
+            } else if (error.response.status === 409) {
+              this.$q.dialog({
+                message: this.lang.auth.register.alreadyRegistered
+              })
+            } else {
+              this.$q.dialog({
+                message: this.lang.auth.register.error
+              })
+              console.error(error)
+            }
+          }
+        })
+        .finally(() => {
+          this.loading = false
+        })
+    },
+    onSubmit () {
+      if (this.identifierField === 'email') {
+        this.$q.dialog({
+          message: this.lang.auth.register.checkEmail(this.data.email),
+          cancel: true
+        })
+          .onOk(() => {
+            this.register()
+          })
+      } else {
+        this.register()
+      }
     }
   }
 }

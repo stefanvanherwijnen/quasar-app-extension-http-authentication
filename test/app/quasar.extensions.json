@@ -1,6 +1,7 @@
 {
   "auth-token-based": {
     "baseUrl": "http://127.0.0.1:3000",
+    "identifierField": "username",
     "registerRoute": "/auth/register",
     "verificationRoute": "/auth/verify",
     "loginRoute": "/auth/login",
