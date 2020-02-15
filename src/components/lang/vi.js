@@ -3,17 +3,20 @@ export default {
     submit: 'Gửi',
     myAccount: 'Tài khoản',
     navigation: 'Thanh điều hướng',
-    email: 'Email',
+    fields: {
+      email: 'Email',
+      username: 'Tên đăng nhập',
+      password: 'Mật khẩu',
+      repeatPassword: 'Xác thực mật khẩu'
+    },
     login: {
       login: 'Đăng nhập',
       passwordForgot: 'Quên mật khẩu?',
       verificationRequired:
-        'Vui long kiểm tra email và xác thực tài khoản của bạn.',
+        'Vui lòng kiểm tra email và xác thực tài khoản trước.',
       invalidCredentials: 'Email hoặc mật khẩu sai.',
-      email: 'Email',
-      password: 'Mật khẩu',
       rememberMe: 'Ghi nhớ',
-      registerMessage: 'Bạn không có tài khoản?',
+      registerMessage: 'Bạn chưa có tài khoản?',
       register: 'Đăng ký.'
     },
     register: {
@@ -24,9 +27,6 @@ export default {
         'Email này đã được đăng ký. Vui lòng kiểm tra email để xác thực.',
       accountCreated:
         'Vui lòng kiểm tra email để xác thực. Việc này có thể mất tối đa 10 phút. Hãy kiểm tra thư mục spam nếu bạn không nhận được email.',
-      name: 'Tên',
-      password: 'Mật khẩu',
-      repeatPassword: 'Xác thực Mật khẩu',
       checkEmail: (email) => `Bạn muốn đăng ký với email này ${email}?`,
       error: 'Có gì đó không ổn.'
     },
@@ -49,14 +49,15 @@ export default {
       reset: {
         header: 'Lấy lại mật khẩu',
         success:
-          'Mật khẩu đã được thay đổi. Bạn có rheer đăng nhập với mật khẩu mới.'
+          'Mật khẩu đã được thay đổi. Bạn có thể đăng nhập với mật khẩu mới.'
       }
     },
     validations: {
       required: 'Trường này là bắt buộc.',
       passwordLength: (length) => `Mật khẩu phải có ít nhất ${length} kí tự.`,
       passwordMatch: 'Mật khẩu không trùng.',
-      email: 'Địa chỉ mail sai.'
+      email: 'Email không đúng định dạng.',
+      username: 'Tên đăng nhập chỉ được chưa các kí tự chữ và số.'
     }
   }
 }
