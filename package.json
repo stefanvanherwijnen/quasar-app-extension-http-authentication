@@ -1,6 +1,6 @@
 {
   "name": "quasar-app-extension-auth-token-based",
-  "version": "0.9.3",
+  "version": "0.9.7",
   "description": "Token based authentication for Quasar Framework",
   "author": "Stefan van Herwijnen",
   "license": "MIT",
