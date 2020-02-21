@@ -183,7 +183,7 @@ export default {
               message: this.lang.auth.register.accountCreated
             })
             .onOk(data => {
-              this.$router.push('/login')
+              this.$router.push('/')
             })
         })
         .catch(error => {
