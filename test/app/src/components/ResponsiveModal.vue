@@ -55,11 +55,11 @@
 </template>
 
 <script>
-let translations = {
+const translations = {
   'en-us': {
     submit: 'Submit'
   },
-  'nl': {
+  nl: {
     submit: 'Versturen'
   }
 }
@@ -98,13 +98,13 @@ export default {
   },
   methods: {
     __setupLang () {
-      let isoName = this.$q.lang.isoName || 'en-us'
+      const isoName = this.$q.lang.isoName || 'en-us'
       let lang
       try {
         lang = translations[isoName]
       } catch (e) { }
 
-      if (lang !== void 0) {
+      if (lang) {
         this.lang = { ...lang }
       }
     },

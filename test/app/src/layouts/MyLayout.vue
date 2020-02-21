@@ -198,9 +198,7 @@ export default {
         language = require(`quasar/lang/${lang}`)
       } catch (e) { }
 
-      if (language !== void 0) {
-        console.log(language)
-
+      if (language) {
         this.$q.lang.set(language.default)
       }
     }
