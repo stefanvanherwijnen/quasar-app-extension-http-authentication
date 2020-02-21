@@ -6,14 +6,13 @@
  */
 
 module.exports = function (api) {
-
   api.compatibleWith('quasar', '^1.0.0')
   api.compatibleWith('@quasar/app', '^1.0.0')
 
   if (!api.hasPackage('validator')) {
     api.extendPackageJson({
       dependencies: {
-        'validator': '^12.1.0'
+        validator: '^12.1.0'
       }
     })
   }
@@ -21,5 +20,4 @@ module.exports = function (api) {
   api.render('./templates', {
     prompts: api.prompts
   })
-
 }

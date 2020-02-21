@@ -111,14 +111,14 @@ export default {
   },
   methods: {
     __setupLang () {
-      let isoName = this.$q.lang.isoName || 'en-us'
+      const isoName = this.$q.lang.isoName || 'en-us'
       let lang
       try {
         lang = require(`auth-token-based/lang/${isoName}`)
       } catch (e) { }
 
       if (lang !== void 0) {
-        this.lang['auth'] = { ...lang.default.auth }
+        this.lang.auth = { ...lang.default.auth }
       }
     },
     onSubmit () {

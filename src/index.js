@@ -24,7 +24,7 @@ const extendWithComponent = (conf) => {
 
   conf.preFetch = true
 
-  console.log(`App Extension (auth-token-based) Info: 'Adding auth-token-based boot reference to your quasar.conf.js'`)
+  console.log('App Extension (auth-token-based) Info: \'Adding auth-token-based boot reference to your quasar.conf.js\'')
 }
 
 const chainWebpack = (ctx, chain) => {
