@@ -136,7 +136,7 @@ export default {
         password: [
           val => !!val || this.lang.auth.validations.required,
           val =>
-            val.length > this.minPasswordLength ||
+            val.length >= this.minPasswordLength ||
             this.lang.auth.validations.passwordLength(this.minPasswordLength)
         ],
         repeatPassword: [
