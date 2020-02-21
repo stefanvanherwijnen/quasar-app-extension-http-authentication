@@ -18,21 +18,38 @@
           <q-input
             id="password"
             v-model="data.password"
-            type="password"
-            :label="lang.auth.register.password"
+            :type="showPassword.password ? 'text' : 'password'"
+            :label="lang.auth.fields.password"
             bottom-slots
             :rules="validations['password']"
             lazy-rules
-          />
+          >
+            <template v-slot:append>
+              <q-icon
+                :name="showPassword.password ? 'visibility' : 'visibility_off'"
+                class="cursor-pointer"
+                @click="showPassword.password = !showPassword.password"
+              />
+            </template>
+          </q-input>
           <q-input
             id="repeatPassword"
             v-model="data.repeatPassword"
-            type="password"
-            :label="lang.auth.register.repeatPassword"
+            :type="showPassword.repeatPassword ? 'text' : 'password'"
+            :label="lang.auth.fields.repeatPassword"
             bottom-slots
             required
             :rules="validations['repeatPassword']"
-          />
+            lazy-rules
+          >
+            <template v-slot:append>
+              <q-icon
+                :name="showPassword.repeatPassword ? 'visibility' : 'visibility_off'"
+                class="cursor-pointer"
+                @click="showPassword.repeatPassword = !showPassword.repeatPassword"
+              />
+            </template>
+          </q-input>
         </q-card-section>
         <q-card-actions>
           <q-btn
@@ -77,6 +94,10 @@ export default {
             equals(val, this.data.password) ||
             this.lang.auth.validations.passwordMatch
         ]
+      },
+      showPassword: {
+        password: false,
+        repeatPassword: false
       }
     }
   },

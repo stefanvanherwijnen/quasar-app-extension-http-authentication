@@ -36,11 +36,20 @@
           <q-input
             id="password"
             v-model="data.body.password"
-            type="password"
+            :type="showPassword ? 'text' : 'password'"
             :label="lang.auth.fields.password"
             :rules="validations['password']"
             lazy-rules
-          /><br>
+          >
+            <template v-slot:append>
+              <q-icon
+                :name="showPassword ? 'visibility' : 'visibility_off'"
+                class="cursor-pointer"
+                @click="showPassword = !showPassword"
+              />
+            </template>
+          </q-input>
+          <br>
           <q-checkbox
             id="rememberMe"
             v-model="data.rememberMe"
@@ -100,7 +109,8 @@ export default {
         ],
         password: [val => !!val || this.lang.auth.validations.required]
       },
-      identifierField: prompts['auth-token-based'].identifierField
+      identifierField: prompts['auth-token-based'].identifierField,
+      showPassword: false
     }
   },
   watch: {
