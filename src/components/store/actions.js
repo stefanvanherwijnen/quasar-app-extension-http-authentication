@@ -9,6 +9,8 @@ const LOGIN_ROUTE = prompts['auth-token-based'].loginRoute
 const FETCH_USER_ROUTE = prompts['auth-token-based'].fetchUserRoute
 const PASSWORD_FORGOT_ROUTE = prompts['auth-token-based'].passwordForgotRoute
 const PASSWORD_RESET_ROUTE = prompts['auth-token-based'].passwordResetRoute
+const AUTHENTICATION_SCHEME = prompts['auth-token-based'].authenticationScheme
+const IDENTIFIER_FIELD = prompts['auth-token-based'].identifierField
 
 export function register (state, data) {
   return axiosInstance.post(REGISTER_ROUTE, data)
@@ -20,13 +22,19 @@ export function login (state, data) {
       .post(LOGIN_ROUTE, data.body)
       .then(response => {
         state.commit('setUser', response.data.user.data)
-        const token = response.data.token
-        axiosInstance.defaults.headers.common.Authorization =
-          'Bearer ' + token
-        state.dispatch('setToken', {
-          token: token,
-          rememberMe: data.rememberMe
-        })
+        if (AUTHENTICATION_SCHEME === 'Basic') {
+          state.dispatch('setToken', {
+            [IDENTIFIER_FIELD]: data.body[IDENTIFIER_FIELD],
+            password: data.body.password,
+            rememberMe: data.rememberMe
+          })
+        } else {
+          const token = response.data.token
+          state.dispatch('setToken', {
+            token: token,
+            rememberMe: data.rememberMe
+          })
+        }
         resolve()
       })
       .catch(error => {
@@ -37,14 +45,20 @@ export function login (state, data) {
 }
 
 export function setToken (state, data) {
-  axiosInstance.defaults.headers.common.Authorization =
-    'Bearer ' + data.token
-  if (data.rememberMe) {
-    Cookies.set('authorization_token', data.token, {
-      expires: 365
-    })
+  if (AUTHENTICATION_SCHEME === 'Basic') {
+    console.log(data)
+    axiosInstance.defaults.headers.common.Authorization =
+      'Basic ' + btoa(`${data[IDENTIFIER_FIELD]}:${data.password}`)
   } else {
-    Cookies.set('authorization_token', data.token)
+    axiosInstance.defaults.headers.common.Authorization =
+      'Bearer ' + data.token
+    if (data.rememberMe) {
+      Cookies.set('authorization_token', data.token, {
+        expires: 365
+      })
+    } else {
+      Cookies.set('authorization_token', data.token)
+    }
   }
 }
 
@@ -52,6 +66,8 @@ export async function fetch (state) {
   var token = Cookies.get('authorization_token')
   if (token) {
     axiosInstance.defaults.headers.common.Authorization = 'Bearer ' + token
+  }
+  if (axiosInstance.defaults.headers.common.Authorization) {
     return axiosInstance.get(FETCH_USER_ROUTE).then(response => {
       state.commit('setUser', response.data.data)
     }).then(() => {
