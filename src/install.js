@@ -6,6 +6,8 @@
  */
 
 module.exports = function (api) {
+  console.log('This extension has been renamed to (quasar-app-extension-)http-authentication. Please switch to the new package.')
+
   api.compatibleWith('quasar', '^1.0.0')
   api.compatibleWith('@quasar/app', '^1.0.0')
 
