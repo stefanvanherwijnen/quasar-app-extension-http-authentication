@@ -114,7 +114,7 @@ export default {
       const isoName = this.$q.lang.isoName || 'en-us'
       let lang
       try {
-        lang = require(`auth-token-based/lang/${isoName}`)
+        lang = require(`http-authentication/lang/${isoName}`)
       } catch (e) { }
 
       if (lang !== void 0) {

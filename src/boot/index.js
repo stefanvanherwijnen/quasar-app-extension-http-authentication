@@ -6,7 +6,7 @@ function isArrayOrString (variable) {
   }
   return false
 }
-import auth from 'auth-token-based/store'
+import auth from 'http-authentication/store'
 
 export default ({ app, router, store, Vue }) => {
   /**
@@ -55,22 +55,22 @@ export default ({ app, router, store, Vue }) => {
     {
       path: '/login',
       name: 'login',
-      component: () => import('auth-token-based/pages/Login')
+      component: () => import('http-authentication/pages/Login')
     },
     {
       path: '/logout',
       name: 'logout',
-      component: () => import('auth-token-based/pages/Logout')
+      component: () => import('http-authentication/pages/Logout')
     },
     {
       path: '/register',
       name: 'register',
-      component: () => import('auth-token-based/pages/Register')
+      component: () => import('http-authentication/pages/Register')
     },
     {
       path: '/verification',
       name: 'verification',
-      component: () => import('auth-token-based/pages/Verification')
+      component: () => import('http-authentication/pages/Verification')
     },
     {
       path: '/password',
@@ -80,12 +80,12 @@ export default ({ app, router, store, Vue }) => {
         {
           path: 'forgot',
           name: 'forgot',
-          component: () => import('auth-token-based/pages/password/Forgot')
+          component: () => import('http-authentication/pages/password/Forgot')
         },
         {
           path: 'reset',
           name: 'reset',
-          component: () => import('auth-token-based/pages/password/Reset')
+          component: () => import('http-authentication/pages/password/Reset')
         }
       ]
     }

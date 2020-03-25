@@ -3,14 +3,14 @@ import { Cookies } from 'quasar'
 
 import prompts from 'app/quasar.extensions.json'
 
-const REGISTER_ROUTE = prompts['auth-token-based'].registerRoute
-const VERIFICATION_ROUTE = prompts['auth-token-based'].verificationRoute
-const LOGIN_ROUTE = prompts['auth-token-based'].loginRoute
-const FETCH_USER_ROUTE = prompts['auth-token-based'].fetchUserRoute
-const PASSWORD_FORGOT_ROUTE = prompts['auth-token-based'].passwordForgotRoute
-const PASSWORD_RESET_ROUTE = prompts['auth-token-based'].passwordResetRoute
-const AUTHENTICATION_SCHEME = prompts['auth-token-based'].authenticationScheme
-const IDENTIFIER_FIELD = prompts['auth-token-based'].identifierField
+const REGISTER_ROUTE = prompts['http-authentication'].registerRoute
+const VERIFICATION_ROUTE = prompts['http-authentication'].verificationRoute
+const LOGIN_ROUTE = prompts['http-authentication'].loginRoute
+const FETCH_USER_ROUTE = prompts['http-authentication'].fetchUserRoute
+const PASSWORD_FORGOT_ROUTE = prompts['http-authentication'].passwordForgotRoute
+const PASSWORD_RESET_ROUTE = prompts['http-authentication'].passwordResetRoute
+const AUTHENTICATION_SCHEME = prompts['http-authentication'].authenticationScheme
+const IDENTIFIER_FIELD = prompts['http-authentication'].identifierField
 
 export function register (state, data) {
   return axiosInstance.post(REGISTER_ROUTE, data)

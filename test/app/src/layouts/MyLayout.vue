@@ -169,7 +169,7 @@
 </template>
 
 <script>
-import authMenu from 'auth-token-based/components/AuthMenu'
+import authMenu from 'http-authentication/components/AuthMenu'
 import adminMenu from './menu/AdminMenu'
 import superuserMenu from './menu/SuperuserMenu'
 

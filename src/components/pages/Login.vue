@@ -109,7 +109,7 @@ export default {
         ],
         password: [val => !!val || this.lang.auth.validations.required]
       },
-      identifierField: prompts['auth-token-based'].identifierField,
+      identifierField: prompts['http-authentication'].identifierField,
       showPassword: false
     }
   },
@@ -126,7 +126,7 @@ export default {
       const isoName = this.$q.lang.isoName || 'en-us'
       let lang
       try {
-        lang = require(`auth-token-based/lang/${isoName}`)
+        lang = require(`http-authentication/lang/${isoName}`)
       } catch (e) { }
 
       if (lang !== void 0) {

@@ -8,9 +8,9 @@
 const path = require('path')
 
 const extendWithComponent = (conf) => {
-  conf.boot.push('~quasar-app-extension-auth-token-based/src/boot/index.js')
+  conf.boot.push('~quasar-app-extension-http-authentication/src/boot/index.js')
 
-  conf.build.transpileDependencies.push(/quasar-app-extension-auth-token-based[\\/]src/)
+  conf.build.transpileDependencies.push(/quasar-app-extension-http-authentication[\\/]src/)
 
   const requiredPlugins = ['Notify', 'Dialog', 'Cookies']
 
@@ -22,12 +22,12 @@ const extendWithComponent = (conf) => {
 
   conf.preFetch = true
 
-  console.log('App Extension (auth-token-based) Info: \'Adding auth-token-based boot reference to your quasar.conf.js\'')
+  console.log('App Extension (http-authentication) Info: \'Adding http-authentication boot reference to your quasar.conf.js\'')
 }
 
 const chainWebpack = (ctx, chain) => {
   chain.resolve.alias
-    .set('auth-token-based', path.resolve(__dirname, './components'))
+    .set('http-authentication', path.resolve(__dirname, './components'))
 }
 
 module.exports = function (api) {

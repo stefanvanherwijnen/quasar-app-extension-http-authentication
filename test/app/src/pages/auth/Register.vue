@@ -19,7 +19,7 @@
 </style>
 
 <script>
-import registerPage from 'auth-token-based/pages/Register.vue'
+import registerPage from 'http-authentication/pages/Register.vue'
 
 export default {
   name: 'Register',
