@@ -8,10 +8,8 @@
 const path = require('path')
 
 const extendWithComponent = (conf) => {
-  // make sure boot file is registered
   conf.boot.push('~quasar-app-extension-auth-token-based/src/boot/index.js')
 
-  // make sure boot file transpiles
   conf.build.transpileDependencies.push(/quasar-app-extension-auth-token-based[\\/]src/)
 
   const requiredPlugins = ['Notify', 'Dialog', 'Cookies']
@@ -36,10 +34,7 @@ module.exports = function (api) {
   console.log('This extension has been renamed to (quasar-app-extension-)http-authentication. Please switch to the new package.')
   api.compatibleWith('@quasar/app', '^1.0.0')
 
-  // register JSON api
-  // api.registerDescribeApi('QPostalCode', './components/QPostalCode.json')
   api.chainWebpack((chain) => chainWebpack(api.ctx, chain))
 
-  // extend quasar.conf
   api.extendQuasarConf(extendWithComponent)
 }

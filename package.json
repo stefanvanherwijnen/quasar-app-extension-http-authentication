@@ -1,7 +1,7 @@
 {
-  "name": "quasar-app-extension-auth-token-based",
-  "version": "0.9.9",
-  "description": "Token based authentication for Quasar Framework",
+  "name": "quasar-app-extension-http-authentication",
+  "version": "1.0.0",
+  "description": "HTTP authentication for Quasar Framework",
   "author": "Stefan van Herwijnen",
   "license": "MIT",
   "main": "src/index.js",
@@ -11,9 +11,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/stefanvanherwijnen/quasar-app-extension-auth-token-based"
+    "url": "https://github.com/stefanvanherwijnen/quasar-app-extension-http-authentication"
   },
-  "bugs": "https://github.com/stefanvanherwijnen/quasar-app-extension-auth-token-based/issues",
+  "bugs": "https://github.com/stefanvanherwijnen/quasar-app-extension-http-authentication/issues",
   "homepage": "",
   "engines": {
     "node": ">= 8.9.0",
@@ -21,15 +21,15 @@
     "yarn": ">= 1.6.0"
   },
   "devDependencies": {
-    "@vue/eslint-config-standard": "^5.1.1",
-    "babel-eslint": "^10.0.3",
+    "@vue/eslint-config-standard": "^5.1.2",
+    "babel-eslint": "^10.1.0",
     "eslint": "^6.8.0",
-    "eslint-config-standard": "^14.1.0",
+    "eslint-config-standard": "^14.1.1",
     "eslint-loader": "^3.0.3",
-    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-import": "^2.20.1",
     "eslint-plugin-node": "^11.0.0",
-    "eslint-plugin-promise": "^4.0.1",
-    "eslint-plugin-standard": "^4.0.0",
-    "eslint-plugin-vue": "^6.1.2"
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "eslint-plugin-vue": "^6.2.2"
   }
 }
