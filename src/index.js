@@ -8,10 +8,8 @@
 const path = require('path')
 
 const extendWithComponent = (conf) => {
-  // make sure boot file is registered
   conf.boot.push('~quasar-app-extension-auth-token-based/src/boot/index.js')
 
-  // make sure boot file transpiles
   conf.build.transpileDependencies.push(/quasar-app-extension-auth-token-based[\\/]src/)
 
   const requiredPlugins = ['Notify', 'Dialog', 'Cookies']
@@ -35,10 +33,7 @@ const chainWebpack = (ctx, chain) => {
 module.exports = function (api) {
   api.compatibleWith('@quasar/app', '^1.0.0')
 
-  // register JSON api
-  // api.registerDescribeApi('QPostalCode', './components/QPostalCode.json')
   api.chainWebpack((chain) => chainWebpack(api.ctx, chain))
 
-  // extend quasar.conf
   api.extendQuasarConf(extendWithComponent)
 }

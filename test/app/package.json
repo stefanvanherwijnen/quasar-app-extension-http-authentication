@@ -12,15 +12,15 @@
     "test": "echo \"No test specified\" && exit 0"
   },
   "dependencies": {
-    "@quasar/extras": "^1.5.1",
+    "@quasar/extras": "^1.6.0",
     "axios": "^0.19.2",
     "jsonapi-vuex": "^4.1.1",
-    "quasar": "^1.9.1",
+    "quasar": "^1.9.11",
     "validator": "^12.2.0",
     "vue-i18n": "^8.15.3"
   },
   "devDependencies": {
-    "@quasar/app": "^1.0.0",
+    "@quasar/app": "^1.6.0",
     "babel-eslint": "^10.0.1",
     "eslint": "^6.8.0",
     "eslint-config-standard": "^14.1.0",
@@ -30,7 +30,7 @@
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-standard": "^4.0.0",
     "eslint-plugin-vue": "^6.1.2",
-    "quasar-app-extension-auth-token-based": "^0.9.3"
+    "quasar-app-extension-http-authentication": "^0.9.3"
   },
   "resolutions": {
     "@babel/parser": "7.7.5"

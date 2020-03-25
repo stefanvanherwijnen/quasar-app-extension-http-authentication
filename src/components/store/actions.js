@@ -23,14 +23,14 @@ export function login (state, data) {
       .then(response => {
         state.commit('setUser', response.data.user.data)
         if (AUTHENTICATION_SCHEME === 'Basic') {
-          state.dispatch('setToken', {
+          state.dispatch('setHeader', {
             [IDENTIFIER_FIELD]: data.body[IDENTIFIER_FIELD],
             password: data.body.password,
             rememberMe: data.rememberMe
           })
         } else {
           const token = response.data.token
-          state.dispatch('setToken', {
+          state.dispatch('setHeader', {
             token: token,
             rememberMe: data.rememberMe
           })
@@ -44,9 +44,8 @@ export function login (state, data) {
   return p
 }
 
-export function setToken (state, data) {
+export function setHeader (state, data) {
   if (AUTHENTICATION_SCHEME === 'Basic') {
-    console.log(data)
     axiosInstance.defaults.headers.common.Authorization =
       'Basic ' + btoa(`${data[IDENTIFIER_FIELD]}:${data.password}`)
   } else {
