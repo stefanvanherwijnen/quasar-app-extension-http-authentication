@@ -19,6 +19,25 @@ module.exports = function () {
       default: 'http://127.0.0.1:3000'
     },
     {
+      name: 'authenticationScheme',
+      type: 'list',
+      required: true,
+      message: 'HTTP Authentication scheme (https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication)',
+      choices: [
+        {
+          name: 'Bearer',
+          value: 'Bearer',
+          short: 'Bearer'
+        },
+        {
+          name: 'Basic',
+          value: 'Basic',
+          short: 'Basic'
+        }
+      ],
+      default: 'Bearer'
+    },
+    {
       name: 'identifierField',
       type: 'list',
       required: true,
