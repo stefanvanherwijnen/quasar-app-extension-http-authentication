@@ -138,7 +138,7 @@ export default {
       this.$auth
         .login(this.data)
         .then(response => {
-          this.$router.push('/')
+          this.$router.replace('/')
           this.$store.dispatch('auth/loginCallback')
         })
         .catch(error => {

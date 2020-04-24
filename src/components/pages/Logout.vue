@@ -20,7 +20,7 @@ export default {
       cancel: this.lang.auth.logout.cancel
     }).onOk(() => {
       this.$auth.logout().then(() => {
-        this.$router.push('/')
+        this.$router.replace('/')
       })
     }).onCancel(() => {
       this.$router.go(-1)
