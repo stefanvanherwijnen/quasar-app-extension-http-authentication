@@ -31,7 +31,7 @@ export default {
       error: 'Er ging iets mis.'
     },
     verification: {
-      success: 'Uw account is geverifieerd, u kunt nu inloggen.',
+      success: 'Uw account is geverifieerd. U kunt nu inloggen.',
       failed: 'Verificatie mislukt of account is al geverifieerd. Probeert u in te loggen.'
     },
     logout: {
