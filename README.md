@@ -16,7 +16,7 @@ Quasar CLI will retrieve it from NPM and install the extension.
 
 The installation prompts for the routes which should be used to communicate with the backend. The requests and responses of the server should match with this extension.
 
-There are multiple authentication schemes (https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication). his app extension was originally created for the `Bearer` scheme.
+There are multiple authentication schemes (https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication). This app extension was originally created for the `Bearer` scheme.
 
 ## Layout
 
@@ -57,9 +57,11 @@ Have a look at the pages to see how the functions are used internally.
 # Notes
 Note that an existing axios boot file will be overwritten. If you require support for additional http authentication schemes, please open an issue.
 
+Currently both a .ts and .js file is rendered into your app. You will have to delete the one which is not used in your application.
+
 # Uninstall
 ```bash
-quasar ext remove http-authentication.
+quasar ext remove http-authentication
 ```
 
 # Contribute
