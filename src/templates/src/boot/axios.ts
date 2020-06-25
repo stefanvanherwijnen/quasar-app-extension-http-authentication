@@ -1,6 +1,12 @@
-import Vue from 'vue'
-import axios from 'axios'
+import { boot } from 'quasar/wrappers'
+import axios, { AxiosError, AxiosInstance } from 'axios'
 import qs from 'qs'
+
+declare module 'vue/types/vue' {
+  interface Vue {
+    $axios: AxiosInstance;
+  }
+}
 
 const axiosInstance = axios.create({
   paramsSerializer: params => {
@@ -9,10 +15,10 @@ const axiosInstance = axios.create({
   baseURL: '<%= prompts.baseUrl %>'
 })
 
-const setErrorInterceptor = (errorFunction) => {
+const setErrorInterceptor = (errorFunction: () => void) => {
   axiosInstance.interceptors.response.use((response) => {
     return response
-  }, (error) => {
+  }, (error: AxiosError) => {
     if (!error.response) {
       errorFunction()
     }
@@ -20,10 +26,12 @@ const setErrorInterceptor = (errorFunction) => {
   })
 }
 
-const setBaseURL = (baseURL) => {
+const setBaseURL = (baseURL: string) => {
   axiosInstance.defaults.baseURL = baseURL
 }
 
-Vue.prototype.$axios = axiosInstance
-
 export { axiosInstance, setErrorInterceptor, setBaseURL }
+export default boot(({ Vue }) => {
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+  Vue.prototype.$axios = axiosInstance
+})
