@@ -1,0 +1,40 @@
+{
+  "type": "component",
+  "meta": {
+    "docsUrl": "https://v1.quasar.dev/vue-components/tab-panels"
+  },
+  "behavior": {
+    "$listeners": {
+      "desc": "All native events are being propagated (you don't need the '.native' modifier)"
+    }
+  },
+  "props": {
+    "name": {
+      "type": "Any",
+      "desc": "Panel name",
+      "required": true,
+      "examples": [
+        "accounts",
+        "firstPanel",
+        ":name=\"1\""
+      ],
+      "category": "general"
+    },
+    "disable": {
+      "type": "Boolean",
+      "desc": "Put component in disabled mode",
+      "category": "state"
+    },
+    "dark": {
+      "type": "Boolean",
+      "desc": "Notify the component that the background is a dark color",
+      "category": "style",
+      "addedIn": "v1.3.0"
+    }
+  },
+  "slots": {
+    "default": {
+      "desc": "Default slot in the devland unslotted content of the component"
+    }
+  }
+}

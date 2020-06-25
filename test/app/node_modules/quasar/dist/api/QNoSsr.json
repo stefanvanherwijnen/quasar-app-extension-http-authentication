@@ -1,0 +1,40 @@
+{
+  "type": "component",
+  "meta": {
+    "docsUrl": "https://v1.quasar.dev/vue-components/no-ssr"
+  },
+  "behavior": {
+    "$listeners": {
+      "desc": "All native events are being propagated (you don't need the '.native' modifier)"
+    }
+  },
+  "props": {
+    "tag": {
+      "type": "String",
+      "desc": "HTML tag to render",
+      "default": "div",
+      "category": "content",
+      "examples": [
+        "div",
+        "span",
+        "blockquote"
+      ]
+    },
+    "placeholder": {
+      "type": "String",
+      "desc": "Text to display on server-side render (unless using 'placeholder' slot)",
+      "examples": [
+        "This is server-side only"
+      ],
+      "category": "content"
+    }
+  },
+  "slots": {
+    "default": {
+      "desc": "Default slot is used to render content on client-side"
+    },
+    "placeholder": {
+      "desc": "Slot used as placeholder on server-side render, which gets replaced by the default slot on client-side; overrides 'placeholder' prop"
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+    "name": "@types/http-proxy-middleware",
+    "version": "0.19.3",
+    "description": "TypeScript definitions for http-proxy-middleware",
+    "license": "MIT",
+    "contributors": [
+        {
+            "name": "Zebulon McCorkle",
+            "url": "https://github.com/zebMcCorkle",
+            "githubUsername": "zebMcCorkle"
+        },
+        {
+            "name": "BendingBender",
+            "url": "https://github.com/BendingBender",
+            "githubUsername": "BendingBender"
+        }
+    ],
+    "main": "",
+    "types": "index",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
+        "directory": "types/http-proxy-middleware"
+    },
+    "scripts": {},
+    "dependencies": {
+        "@types/connect": "*",
+        "@types/http-proxy": "*",
+        "@types/node": "*"
+    },
+    "typesPublisherContentHash": "d4a3c2172de931b87930ced817f8438ee6040d275829a857cf31c8d4ebad8e38",
+    "typeScriptVersion": "2.3"
+}

@@ -1,0 +1,18 @@
+{
+  "QCarouselSlide": "img-src",
+  "q-carousel-slide": "img-src",
+  "QChatMessage": "avatar",
+  "q-chat-message": "avatar",
+  "QImg": [
+    "src",
+    "placeholder-src"
+  ],
+  "q-img": [
+    "src",
+    "placeholder-src"
+  ],
+  "QParallax": "src",
+  "q-parallax": "src",
+  "QTimelineEntry": "avatar",
+  "q-timeline-entry": "avatar"
+}

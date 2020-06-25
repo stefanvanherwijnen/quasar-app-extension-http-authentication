@@ -1,0 +1,36 @@
+{
+  "type": "component",
+  "meta": {
+    "docsUrl": "https://v1.quasar.dev/vue-components/video"
+  },
+  "behavior": {
+    "$listeners": {
+      "desc": "All native events are being propagated (you don't need the '.native' modifier)"
+    }
+  },
+  "props": {
+    "ratio": {
+      "type": [
+        "String",
+        "Number"
+      ],
+      "desc": "Aspect ratio for the content; If value is a String, then avoid using a computational statement (like '16/9') and instead specify the String value of the result directly (eg. '1.7777')",
+      "examples": [
+        ":ratio=\"4/3\"",
+        ":ratio=\"16/9\"",
+        "ratio=\"1\""
+      ],
+      "category": "style",
+      "addedIn": "v1.7.0"
+    },
+    "src": {
+      "type": "String",
+      "desc": "The source url to display in an iframe",
+      "required": true,
+      "examples": [
+        "src=\"https://www.youtube.com/embed/k3_tw44QsZQ\""
+      ],
+      "category": "model"
+    }
+  }
+}

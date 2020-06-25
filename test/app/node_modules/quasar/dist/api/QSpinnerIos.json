@@ -1,0 +1,33 @@
+{
+  "type": "component",
+  "meta": {
+    "docsUrl": "https://v1.quasar.dev/vue-components/spinners"
+  },
+  "behavior": {
+    "$listeners": {
+      "desc": "All native events are being propagated (you don't need the '.native' modifier)"
+    }
+  },
+  "props": {
+    "size": {
+      "type": "String",
+      "desc": "Size in CSS units, including unit name or standard size name (xs|sm|md|lg|xl)",
+      "examples": [
+        "16px",
+        "2rem",
+        "xs",
+        "md"
+      ],
+      "category": "style"
+    },
+    "color": {
+      "type": "String",
+      "desc": "Color name for component from the Quasar Color Palette",
+      "examples": [
+        "primary",
+        "teal-10"
+      ],
+      "category": "style"
+    }
+  }
+}

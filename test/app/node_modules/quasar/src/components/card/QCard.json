@@ -1,0 +1,40 @@
+{
+  "mixins": [ "mixins/tag" ],
+
+  "meta": {
+    "docsUrl": "https://v1.quasar.dev/vue-components/card"
+  },
+
+  "behavior": {
+    "$listeners": true
+  },
+
+  "props": {
+    "dark": {
+      "extends": "dark"
+    },
+
+    "square": {
+      "extends": "square"
+    },
+
+    "flat": {
+      "extends": "flat"
+    },
+
+    "bordered": {
+      "extends": "bordered"
+    },
+
+    "tag": {
+      "examples": [ "div", "form" ],
+      "addedIn": "v1.8.4"
+    }
+  },
+
+  "slots": {
+    "default": {
+      "extends": "default"
+    }
+  }
+}

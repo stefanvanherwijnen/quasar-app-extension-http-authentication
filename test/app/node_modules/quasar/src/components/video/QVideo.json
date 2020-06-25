@@ -1,0 +1,27 @@
+{
+  "meta": {
+    "docsUrl": "https://v1.quasar.dev/vue-components/video"
+  },
+
+  "mixins": [ "mixins/ratio" ],
+
+  "behavior": {
+    "$listeners": true
+  },
+
+  "props": {
+    "src": {
+      "type": "String",
+      "desc": "The source url to display in an iframe",
+      "required": true,
+      "examples": [
+        "src=\"https://www.youtube.com/embed/k3_tw44QsZQ\""
+      ],
+      "category": "model"
+    },
+
+    "ratio": {
+      "addedIn": "v1.7.0"
+    }
+  }
+}
