@@ -8,7 +8,7 @@ declare module 'vue/types/vue' {
   }
 }
 
-const axiosInstance = axios.create({
+const axiosInstance: AxiosInstance = axios.create({
   paramsSerializer: params => {
     return qs.stringify(params, { arrayFormat: 'repeat' })
   },
