@@ -1,0 +1,25 @@
+{
+  "version": "2.0.1-beta.1",
+  "private": true,
+  "workspaces": [
+    "app-extension",
+    "ui"
+  ],
+  "scripts": {
+    "build": "yarn workspaces run build",
+    "release": "yarn run build && release-it"
+  },
+  "devDependencies": {
+    "release-it": "^14.6.1",
+    "release-it-yarn-workspaces": "nilzona/release-it-yarn-workspaces#fix-publish"
+  },
+  "release-it": {
+    "github": {
+      "release": true
+    },
+    "plugins": {
+      "release-it-yarn-workspaces": true
+    },
+    "npm": false
+  }
+}

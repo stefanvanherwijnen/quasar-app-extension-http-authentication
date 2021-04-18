@@ -1,0 +1,68 @@
+
+
+
+<template>
+  <q-card
+    v-if="lang"
+    square
+    style="width: 400px; padding:50px"
+  >
+    <q-card-section>
+      {{ message }}
+    </q-card-section>
+
+    <q-separator dark />
+
+    <q-card-actions align="right">
+      <q-btn
+        flat
+        @click="toLogin"
+      >
+        {{ lang.auth.login.login }}
+      </q-btn>
+    </q-card-actions>
+  </q-card>
+</template>
+
+<script lang="ts">
+import { defineComponent, toRefs, computed, onMounted } from 'vue'
+import { useAuthHelper } from '../utils/helper'
+import { useLang } from '../lang'
+
+import { Dialog } from 'quasar'
+export default defineComponent({
+  name: 'VerificationComponent',
+  components: {
+  },
+  emits: {
+    toLogin: null
+  },
+  props: {
+    success: {
+      type: Boolean
+    }
+  },
+
+  setup (props, ctx) {
+    const lang = useLang()
+    const { emit } = ctx
+    const { success } = toRefs(props)
+    const message = computed(() => {
+      if (success.value) {
+        return lang.value.auth.verification.success
+      } else {
+        return lang.value.auth.verification.failed
+      }
+    })
+
+    const toLogin = () => {
+      emit('toLogin')
+    }
+    return {
+      lang,
+      message,
+      toLogin
+    }
+  }
+})
+</script>
