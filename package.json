@@ -11,7 +11,7 @@
   },
   "devDependencies": {
     "release-it": "^14.6.1",
-    "release-it-yarn-workspaces": "nilzona/release-it-yarn-workspaces#fix-publish"
+    "release-it-yarn-workspaces": "^2.0.1"
   },
   "release-it": {
     "github": {
