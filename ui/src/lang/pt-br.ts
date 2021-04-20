@@ -66,4 +66,4 @@ export default defineLang({
       username: 'O nome de usuário pode apenas conter caracters alfanuméricos.'
     }
   }
-}
+})
