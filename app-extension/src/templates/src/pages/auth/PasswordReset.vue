@@ -14,7 +14,7 @@ import { useRouter, useRoute } from 'vue-router'
 import { usePasswordReset } from './auth'
 
 export default defineComponent({
-  name: 'App',
+  name: 'PasswordResetPage',
   components: {
   
   },

@@ -12,7 +12,7 @@ import { defineComponent } from 'vue'
 import { useRouter } from 'vue-router'
 import { usePasswordForgot } from './auth'
 export default defineComponent({
-  name: 'App',
+  name: 'PasswordForgotPage',
   components: {
   
   },

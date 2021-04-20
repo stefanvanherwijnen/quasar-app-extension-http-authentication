@@ -4,7 +4,7 @@ import { useRouter, useRoute } from 'vue-router'
 import { useVerify } from './auth'
 
 export default defineComponent({
-  name: 'App',
+  name: 'VerificationPage',
   components: {
   
   },

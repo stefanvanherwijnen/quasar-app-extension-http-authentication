@@ -15,7 +15,7 @@ import { defineComponent } from 'vue'
 import { useRouter } from 'vue-router'
 import { useLogin } from './auth'
 export default defineComponent({
-  name: 'App',
+  name: 'LoginPage',
   components: {
   
   },

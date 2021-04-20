@@ -15,7 +15,7 @@ import { defineComponent, ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { useRegister } from './auth'
 export default defineComponent({
-  name: 'App',
+  name: 'RegisterPage',
   components: {
   
   },
