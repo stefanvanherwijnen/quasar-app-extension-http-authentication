@@ -4,6 +4,7 @@
     :loading="loading"
     :extra-fields="extraFields"
     @submit="register"
+    @to-password-forgot="toPasswordForgot"
   ></register-component>
 </template>
 
@@ -67,7 +68,8 @@ export default defineComponent({
       extraFields,
       log,
       register,
-      loading
+      loading,
+      toPasswordForgot: () => log('passwordForgot')
     }
   }
 })

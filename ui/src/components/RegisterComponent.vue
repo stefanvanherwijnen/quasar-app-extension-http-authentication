@@ -8,6 +8,7 @@
         <div class="text-h6">
           {{ lang.auth.register.register }}
         </div>
+        <a class="cursor-pointer text-blue text-underline" @click="toPasswordForgot">{{ lang.auth.login.passwordForgot }}</a>
       </q-card-section>
 
       <q-card-section>
@@ -104,7 +105,8 @@ import { Dialog } from 'quasar'
 export default defineComponent({
   name: 'RegisterComponent',
   emits: {
-    submit: null
+    submit: null,
+    toPasswordForgot: null
   },
   props: {
     loading: {
@@ -189,6 +191,9 @@ export default defineComponent({
       }
     }
 
+    const toPasswordForgot = () => {
+      emit('toPasswordForgot')
+    }
 
     return {
       lang,
@@ -197,7 +202,8 @@ export default defineComponent({
       validations,
       identifierField,
       showPassword,
-      submit
+      submit,
+      toPasswordForgot
     }
   }
 })

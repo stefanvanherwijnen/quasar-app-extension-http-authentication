@@ -4,6 +4,7 @@
       identifier-field="username"
       :loading="loading"
       :extra-fields="extraFields"
+      @to-password-forgot="toPasswordForgot"
       @submit="register"
     >
     </register-component>
@@ -27,11 +28,16 @@ export default defineComponent({
 
     const { result, loading, fetch: register } = useRegister({ router })
 
+    const toPasswordForgot = () => {
+      router.push('/password/forgot')
+    }
+
     return {
       router,
       extraFields,
       register,
-      loading
+      loading,
+      toPasswordForgot
     }
   }
 })
