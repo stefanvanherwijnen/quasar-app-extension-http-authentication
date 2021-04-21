@@ -19,8 +19,7 @@ export default defineConfig({
     lib: {
       // UMD not supported for code-splitting builds
       formats: ['es'],
-      entry: './src/index.ts',
-      name: 'http-authentication'
+      entry: './src/index.ts'
     },
     rollupOptions: {
       external: ['vue','quasar'],

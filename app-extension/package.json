@@ -15,12 +15,10 @@
   "bugs": "https://github.com/stefanvanherwijnen/quasar-app-extension-http-authentication/issues",
   "homepage": "",
   "dependencies": {
-    "@quasar/app": "^3.0.0-beta.12",
     "quasar-ui-http-authentication": "^2.0.1-beta.2"
   },
   "devDependencies": {
     "@types/node": "^14.14.39",
-    "release-it": "^14.6.1",
     "typescript": "^4.2.4"
   },
   "engines": {
