@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons" rel="stylesheet" type="text/css">
+    <link href="https://cdn.jsdelivr.net/npm/quasar@2.0.0-beta.12/dist/quasar.prod.css" rel="stylesheet" type="text/css">
+  </head>
+
+  <body>
+    <div id="q-app">
+      <q-btn label="Test"></q-btn>
+    </div>
+    <script async src="https://ga.jspm.io/npm:es-module-shims@0.10.1/dist/es-module-shims.js"></script>
+    <script type="importmap">
+      {
+        "imports": {
+          "vue": "https://cdn.jsdelivr.net/npm/vue@3.0.11/dist/vue.esm-browser.prod.js",
+          "@vue/compiler-dom": "https://cdn.jsdelivr.net/npm/@vue/compiler-dom@3.0.11/dist/compiler-dom.esm-browser.js",
+          "quasar": "https://cdn.jsdelivr.net/npm/quasar@2.0.0-beta.12/dist/quasar.esm.prod.js"
+        }
+      }
+    </script>
+    <script type="module" src="./dist/http-authentication.es.js"></script>
+    <script type="module">
+      import { createApp } from 'vue'
+      import { Quasar } from 'quasar'
+
+      const app = createApp({
+        setup () {
+          return {}
+        }
+      })
+
+      app.use(Quasar)
+      app.mount('#q-app')
+    </script>
+  </body>
+</html>
