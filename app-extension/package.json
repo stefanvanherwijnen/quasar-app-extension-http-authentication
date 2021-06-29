@@ -15,7 +15,7 @@
   "bugs": "https://github.com/stefanvanherwijnen/quasar-app-extension-http-authentication/issues",
   "homepage": "",
   "dependencies": {
-    "@quasar/app": "file:.yalc/@quasar/app",
+    "@quasar/app": "^3.0.0",
     "quasar-ui-http-authentication": "^2.0.1-beta.4"
   },
   "devDependencies": {
