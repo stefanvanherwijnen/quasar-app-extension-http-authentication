@@ -1,6 +1,6 @@
 {
   "name": "quasar-app-extension-http-authentication",
-  "version": "2.0.1-beta.6",
+  "version": "2.0.1-beta.7",
   "description": "HTTP authentication for Quasar framework",
   "author": "Stefan van Herwijnen <stefan@devliert.info>",
   "license": "MIT",
@@ -16,7 +16,7 @@
   "homepage": "",
   "dependencies": {
     "@quasar/app": "^3.0.2",
-    "quasar-ui-http-authentication": "^2.0.1-beta.6"
+    "quasar-ui-http-authentication": "^2.0.1-beta.7"
   },
   "devDependencies": {
     "@types/node": "^16.3.0",

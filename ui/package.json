@@ -1,6 +1,6 @@
 {
   "name": "quasar-ui-http-authentication",
-  "version": "2.0.1-beta.6",
+  "version": "2.0.1-beta.7",
   "author": "Stefan van Herwijnen <stefan@devliert.info>",
   "description": "HTTP authentication components",
   "license": "MIT",
