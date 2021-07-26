@@ -14,10 +14,12 @@
         ref="form"
         class="q-gutter-md"
         @submit="submit"
+        v-bind="qForm"
       >
         <q-card-section>
           <q-input
             v-if="identifierField === 'email'"
+            name="email"
             id="email"
             v-model.trim="user.email"
             type="email"
@@ -28,6 +30,7 @@
           />
           <q-input
             v-if="identifierField === 'username'"
+            name="username"
             v-model.trim="user.username"
             type="text"
             :label="lang.auth.fields.username"
@@ -36,6 +39,7 @@
           />
           <q-input
             id="password"
+            name="password"
             v-model="user.password"
             :type="showPassword ? 'text' : 'password'"
             :label="lang.auth.fields.password"
@@ -57,11 +61,12 @@
             :label="lang.auth.login.rememberMe"
           />
           <br>
-          <a class="cursor-pointer text-blue text-underline" @click="toPasswordForgot">{{ lang.auth.login.passwordForgot }}</a>
+          <q-btn v-if="passwordForgotUrl" :label="lang.auth.login.passwordForgot" size="sm" flat :to="passwordForgotUrl"></q-btn>
+          <!-- <a class="cursor-pointer text-blue text-underline" @click="toPasswordForgot">{{ lang.auth.login.passwordForgot }}</a> -->
         </q-card-section>
 
         <q-card-actions align="between">
-          <q-btn :label="lang.auth.login.createAccount" size="sm" flat @click="toRegister"></q-btn>
+          <q-btn v-if="registerUrl" :label="lang.auth.login.createAccount" size="sm" flat :to="registerUrl"></q-btn>
           <q-btn
             :label="lang.auth.login.login"
             color="primary"
@@ -75,17 +80,17 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, toRefs, computed, reactive } from 'vue'
+import { defineComponent, ref, toRefs, computed, PropType } from 'vue'
 import isEmail from 'validator/es/lib/isEmail'
 import { useLang } from '../lang'
+import { QForm } from 'quasar'
+const { props } = QForm
 
 export default defineComponent({
   name: 'LoginComponent',
 
   emits: {
-    submit: null,
-    toRegister: null,
-    toPasswordForgot: null
+    submit: null
   },
   props: {
     identifierField: {
@@ -97,6 +102,15 @@ export default defineComponent({
     loading: {
       type: Boolean,
       default: false
+    },
+    qForm: {
+      type: Object
+    },
+    registerUrl: {
+      type: String
+    },
+    passwordForgotUrl: {
+      type: String
     }
   },
 
@@ -125,16 +139,19 @@ export default defineComponent({
     }))
     const showPassword = ref(false)
 
-    function submit () {
-      form.value?.validate().then(() => emit('submit', { user: user.value, rememberMe: rememberMe.value }))
+    function submit (evt) {
+      form.value?.validate().then(() => {
+        emit('submit', { user: user.value, rememberMe: rememberMe.value })
+        if (evt) evt.target.submit()
+      })
     }
 
-    const toRegister = () => {
-      emit('toRegister')
-    }
-    const toPasswordForgot = () => {
-      emit('toPasswordForgot')
-    }
+    // const toRegister = () => {
+    //   emit('toRegister')
+    // }
+    // const toPasswordForgot = () => {
+    //   emit('toPasswordForgot')
+    // }
 
     return {
       form,
@@ -145,8 +162,8 @@ export default defineComponent({
       identifierField,
       showPassword,
       submit,
-      toRegister,
-      toPasswordForgot
+      // toRegister,
+      // toPasswordForgot
     }
   }
 })

@@ -15,11 +15,13 @@
         class="q-gutter-md"
         ref="form"
         @submit="submit"
+        v-bind="qForm"
       >
         <q-card-section>
           <q-input
             v-if="identifierField === 'email'"
             id="email"
+            name="email"
             v-model.trim="user.email"
             type="email"
             :label="lang.auth.fields.email"
@@ -31,6 +33,7 @@
           <q-input
             v-if="identifierField === 'username'"
             v-model.trim="user.username"
+            name="username"
             type="text"
             :label="lang.auth.fields.username"
             :rules="validations['username']"
@@ -41,12 +44,14 @@
             :key="field.name"
             v-model="user[field.name]"
             type="text"
+            :name="field.name"
             :label="field.label"
             :rules="field.validation"
             bottom-slots
           />
           <q-input
             id="password"
+            name="password"
             v-model="user.password"
             :type="showPassword.password ? 'text' : 'password'"
             :label="lang.auth.fields.password"
@@ -80,12 +85,15 @@
               />
             </template>
           </q-input>
+
+          <verification-slider @verified="verify" />
         </q-card-section>
 
         <q-card-actions align="right">
           <q-btn
             :label="lang.auth.register.register"
             :loading="loading"
+            :disabled="!verified"
             type="submit"
             color="primary"
           />
@@ -104,8 +112,13 @@ import isAlphanumeric from 'validator/es/lib/isAlphanumeric'
 import { useLang, loadLang } from '../lang'
 import { Dialog } from 'quasar'
 
+import VerificationSlider from './VerificationSlider.vue'
+
 export default defineComponent({
   name: 'RegisterComponent',
+  components: {
+    VerificationSlider
+  },
   emits: {
     submit: null,
     toPasswordForgot: null
@@ -131,13 +144,26 @@ export default defineComponent({
       type: String,
       required: true,
       validator: (val: string) => ['email', 'username'].includes(val)
+    },
+    useVerification: {
+      type: Boolean,
+      default: false
+    },
+    qForm: {
+      type: Object,
+      default: {
+        method: 'post'
+      }
     }
   },
 
   setup (props, ctx) {
     const lang = useLang()
     const { emit } = ctx
-    const { identifierField, extraFields, minPasswordLength } = toRefs(props)
+    const { identifierField, extraFields, minPasswordLength, useVerification } = toRefs(props)
+
+    const verified = ref(useVerification ? false : true)
+    const verify = () => verified.value = true
 
     const form = ref<{
       validate: () => Promise<void>
@@ -178,11 +204,12 @@ export default defineComponent({
           repeatPassword: false
     })
 
-    function register () {
+    function register (evt) {
       emit('submit', user.value)
+      if (evt) evt.target.submit()
     }
       
-    function submit () {
+    function submit (evt) {
       form.value?.validate().then(() => {
         if (user.value.email === 'email') {
           Dialog.create({
@@ -191,10 +218,10 @@ export default defineComponent({
             cancel: true
           })
           .onOk(() => {
-            register()
+            register(evt)
           })
         } else {
-          register()
+          register(evt)
         }
       })
     }
@@ -212,7 +239,9 @@ export default defineComponent({
       identifierField,
       showPassword,
       submit,
-      toPasswordForgot
+      toPasswordForgot,
+      verified,
+      verify
     }
   }
 })

@@ -38,7 +38,8 @@ export default defineLang({
     },
     verification: {
       success: 'Sua conta foi verificada e você pode agora fazer o login.',
-      failed: 'Verificação da conta falhou ou a conta já foi verificada. Tente fazer o login.'
+      failed: 'Verificação da conta falhou ou a conta já foi verificada. Tente fazer o login.',
+      slider: 'Please drag the slider all the way to the right until it turns green.'
     }, 
     logout: {
       confirmation: 'Tem certeza que deseja sair?',

@@ -34,11 +34,12 @@ export default defineLang({
       accountCreated:
         'Vui lòng kiểm tra email để xác thực. Việc này có thể mất tối đa 10 phút. Hãy kiểm tra thư mục spam nếu bạn không nhận được email.',
       checkEmail: (email: string) => `Bạn muốn đăng ký với email này <b>${email}</b>?`,
-      error: 'Có gì đó không ổn.'
+      error: 'Có gì đó không ổn.',
     },
     verification: {
       success: 'Tài khoản đã xác thực. Bạn có thể đăng nhập ngay.',
-      failed: 'Xác thực lỗi hoặc tài khoản đã được xác thực. Hãy thử đăng nhập.'
+      failed: 'Xác thực lỗi hoặc tài khoản đã được xác thực. Hãy thử đăng nhập.',
+      slider: 'Please drag the slider all the way to the right until it turns green.'
     },
     logout: {
       confirmation: 'Bạn có chắc muốn đăng xuất?',

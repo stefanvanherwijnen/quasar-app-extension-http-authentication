@@ -34,11 +34,12 @@ export default defineLang({
       accountCreated:
         'Please check your email to verify your registration. This sometimes can take up to 10 minutes. Please check the spam folder if the email has not been received.',
       checkEmail: (email: string) => `You want to register with the email address <b>${email}</b>, is this correct?`,
-      error: 'Something went wrong.'
+      error: 'Something went wrong.',
     },
     verification: {
       success: 'Your account has been verified. You can now login.',
-      failed: 'Verification has failed or the account has already been verified. Please try to login.'
+      failed: 'Verification has failed or the account has already been verified. Please try to login.',
+      slider: 'Please drag the slider all the way to the right until it turns green.'
     },
     logout: {
       confirmation: 'Are you sure you want to log out?',

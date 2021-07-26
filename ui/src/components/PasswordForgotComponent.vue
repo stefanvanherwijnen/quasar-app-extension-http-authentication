@@ -14,10 +14,12 @@
       class="q-gutter-md"
       ref="form"
       @submit="submit"
+      v-bind="qForm"
     >
       <q-card-section>
         <q-input
           id="email"
+          name="email"
           v-model.trim="user.email"
           type="text"
           :label="lang.auth.fields.email"
@@ -54,6 +56,9 @@ export default defineComponent({
     loading: {
       type: Boolean,
       default: false
+    },
+    qForm: {
+      type: Object
     }
   },
 
@@ -74,8 +79,11 @@ export default defineComponent({
       ]
     }))
 
-    function submit () {
-      form.value?.validate().then(() => emit('submit', user.value))
+    function submit (evt) {
+      form.value?.validate().then(() => {
+        emit('submit', user.value)
+        if (evt) evt.target.submit()
+      })
     }
 
     return {

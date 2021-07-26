@@ -14,10 +14,12 @@
       class="q-gutter-md"
       ref="form"
       @submit="submit"
+      v-bind="qForm"
     >
       <q-card-section>
         <q-input
           id="password"
+          name="password"
           v-model="user.password"
           :type="showPassword.password ? 'text' : 'password'"
           :label="lang.auth.fields.password"
@@ -89,6 +91,12 @@ export default defineComponent({
     token: {
       type: String,
       required: true
+    },
+    qForm: {
+      type: Object,
+      default: {
+        method: 'post'
+      }
     }
   },
 
@@ -123,8 +131,11 @@ export default defineComponent({
       repeatPassword: false
     })
 
-    function submit () {
-      form.value?.validate().then(() => emit('submit', { password: user.value.password }, token.value))
+    function submit (evt) {
+      form.value?.validate().then(() => {
+        emit('submit', { password: user.value.password }, token.value)
+        if (evt) evt.target.submit()
+      })
     }
 
     return {

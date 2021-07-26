@@ -23,7 +23,7 @@ export default defineLang({
       rememberMe: 'Onthoud mij',
       registerMessage: 'Heeft u nog geen account aangemaakt?',
       register: 'Registreer hier.',
-      createAccount: 'Account aanmaken'
+      createAccount: 'Account aanmaken',
     },
     register: {
       register: 'Registreren',
@@ -38,7 +38,8 @@ export default defineLang({
     },
     verification: {
       success: 'Uw account is geverifieerd. U kunt nu inloggen.',
-      failed: 'Verificatie mislukt of account is al geverifieerd. Probeert u in te loggen.'
+      failed: 'Verificatie mislukt of account is al geverifieerd. Probeert u in te loggen.',
+      slider: 'Sleep a.u.b. de onderstaande balk helemaal naar rechts tot deze groen wordt.'
     },
     logout: {
       confirmation: 'Weet u zeker dat u wilt uitloggen?',

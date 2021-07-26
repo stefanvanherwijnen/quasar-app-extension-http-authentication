@@ -2,9 +2,12 @@
   <login-component
     identifier-field="username"
     :loading="loading"
-    @submit="login"
-    @to-register="router.push('/register')"
-    @to-password-forgot="router.push('/password/forgot')"
+    :q-form="{ 
+      action: 'https://localhost:8083',
+      method: 'post'
+    }"
+    register-url='/register'
+    password-forgot-url='/password-forgot'
   ></login-component>
 </template>
 

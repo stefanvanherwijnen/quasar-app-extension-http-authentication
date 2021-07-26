@@ -1,5 +1,5 @@
 {
-  "version": "2.0.1-beta.5",
+  "version": "2.0.1-beta.6",
   "private": true,
   "workspaces": [
     "app-extension",

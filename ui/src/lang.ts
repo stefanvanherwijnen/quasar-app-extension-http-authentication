@@ -33,6 +33,7 @@ export interface Language {
     verification: {
       success: string
       failed: string
+      slider: string
     },
     logout: {
       confirmation: string
