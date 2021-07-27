@@ -25,6 +25,11 @@ export default defineLang({
       register: 'Registreer hier.',
       createAccount: 'Account aanmaken',
     },
+    consent: {
+      message: (name: string) => `${name} is requesting access to your data.`,
+      deny: 'deny',
+      allow: 'allow'
+    },
     register: {
       register: 'Registreren',
       invalidData:

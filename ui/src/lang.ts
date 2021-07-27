@@ -22,6 +22,11 @@ export interface Language {
       register: string,
       createAccount: string
     },
+    consent: {
+      message: (name: string) => string
+      deny: string,
+      allow: string
+    },
     register: {
       register: string
       invalidData: string
