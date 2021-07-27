@@ -150,10 +150,7 @@ export default defineComponent({
       default: false
     },
     qForm: {
-      type: Object,
-      default: {
-        method: 'post'
-      }
+      type: Object
     }
   },
 
