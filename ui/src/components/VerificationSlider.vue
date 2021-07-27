@@ -12,6 +12,7 @@ import { defineComponent, ref, computed, watch } from 'vue'
 import { useLang } from '../lang'
 
 export default defineComponent({
+  name: 'VerificationSlider',
   emits: ['verified'],
   setup(props, ctx) {
     const { emit } = ctx
