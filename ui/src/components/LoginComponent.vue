@@ -115,6 +115,7 @@ export default defineComponent({
   },
 
   setup (props, ctx) {
+    const { qForm } = toRefs(props)
     const form = ref<{
       validate: () => Promise<void>
     }>()
@@ -142,7 +143,7 @@ export default defineComponent({
     function submit (evt) {
       form.value?.validate().then(() => {
         emit('submit', { user: user.value, rememberMe: rememberMe.value })
-        if (evt) evt.target.submit()
+        if (qForm.value) evt.target.submit()
       })
     }
 

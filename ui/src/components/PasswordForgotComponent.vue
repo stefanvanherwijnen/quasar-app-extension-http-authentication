@@ -41,7 +41,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, computed } from 'vue'
+import { defineComponent, ref, computed, toRefs } from 'vue'
 
 import isEmail from 'validator/es/lib/isEmail'
 
@@ -63,6 +63,7 @@ export default defineComponent({
   },
 
   setup (props, ctx) {
+    const { qForm } = toRefs(props)
     const lang = useLang()
     const { emit } = ctx
 
@@ -82,7 +83,7 @@ export default defineComponent({
     function submit (evt) {
       form.value?.validate().then(() => {
         emit('submit', user.value)
-        if (evt) evt.target.submit()
+        if (qForm.value) evt.target.submit()
       })
     }
 

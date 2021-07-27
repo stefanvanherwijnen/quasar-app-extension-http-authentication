@@ -155,6 +155,7 @@ export default defineComponent({
   },
 
   setup (props, ctx) {
+    const { qForm } = toRefs(props)
     const lang = useLang()
     const { emit } = ctx
     const { identifierField, extraFields, minPasswordLength, useVerification } = toRefs(props)
@@ -203,7 +204,7 @@ export default defineComponent({
 
     function register (evt) {
       emit('submit', user.value)
-      if (evt) evt.target.submit()
+      if (qForm.value) evt.target.submit()
     }
       
     function submit (evt) {

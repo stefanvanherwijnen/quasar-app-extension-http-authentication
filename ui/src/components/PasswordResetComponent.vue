@@ -98,6 +98,7 @@ export default defineComponent({
   },
 
   setup (props, ctx) {
+    const { qForm } = toRefs(props)
     const lang = useLang()
     const { emit } = ctx
     const { minPasswordLength, token } = toRefs(props)
@@ -131,7 +132,7 @@ export default defineComponent({
     function submit (evt) {
       form.value?.validate().then(() => {
         emit('submit', { password: user.value.password }, token.value)
-        if (evt) evt.target.submit()
+        if (qForm.value) evt.target.submit()
       })
     }
 
