@@ -7,7 +7,6 @@ import ConsentComponent from './components/ConsentComponent.vue'
 
 import { loadLang } from './lang'
 
-export * from './utils/helpers'
 // const version = __UI_VERSION__
 
 function install (app: any, options: { lang: string }) {
@@ -23,7 +22,6 @@ function install (app: any, options: { lang: string }) {
 
 export {
   // version,
-  loadLang,
   LoginComponent,
   RegisterComponent,
   PasswordForgotComponent,
