@@ -83,8 +83,6 @@
 import { defineComponent, ref, toRefs, computed, PropType } from 'vue'
 import isEmail from 'validator/es/lib/isEmail'
 import { useLang } from '../lang'
-import { QForm } from 'quasar'
-const { props } = QForm
 
 export default defineComponent({
   name: 'LoginComponent',
