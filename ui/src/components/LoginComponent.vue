@@ -145,13 +145,6 @@ export default defineComponent({
       })
     }
 
-    // const toRegister = () => {
-    //   emit('toRegister')
-    // }
-    // const toPasswordForgot = () => {
-    //   emit('toPasswordForgot')
-    // }
-
     return {
       form,
       user,
@@ -160,9 +153,7 @@ export default defineComponent({
       validations,
       identifierField,
       showPassword,
-      submit,
-      // toRegister,
-      // toPasswordForgot
+      submit
     }
   }
 })
