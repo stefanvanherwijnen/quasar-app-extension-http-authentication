@@ -55,7 +55,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, toRefs } from 'vue'
 import { useLang } from '../lang'
 
 export default defineComponent({
@@ -82,10 +82,17 @@ export default defineComponent({
   },
   setup(props, ctx) {
     const { emit } = ctx
+    const { allowForm, denyForm } = toRefs(props)
     const lang = useLang()
     
-    const allow = () => emit('allow')
-    const deny = () => emit('deny')
+    const allow = (evt) => {
+      emit('allow')
+      if (allowForm.value) evt.target.submit()
+    }
+    const deny = (evt) => {
+      emit('deny')
+      if (denyForm.value) evt.target.submit()
+    }
 
     return {
       lang,
