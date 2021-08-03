@@ -44,7 +44,7 @@
     </q-card-section>
 
     <q-card-actions align="between">
-      <q-form @submit="deny" v-bind="abortForm">
+      <q-form @submit="deny" v-bind="denyForm">
         <q-btn :label="lang.auth.consent.deny" type="submit" flat />
       </q-form>
       <q-form @submit="allow" v-bind="allowForm">
@@ -72,6 +72,12 @@ export default defineComponent({
     },
     resourceScopes: {
       type: Array
+    },
+    denyForm: {
+      type: Object
+    },
+    allowForm: {
+      type: Object
     }
   },
   setup(props, ctx) {
