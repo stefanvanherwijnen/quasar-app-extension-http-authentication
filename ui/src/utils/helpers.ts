@@ -13,7 +13,7 @@ declare module 'vue-router' {
   }
 }
 
-export const user = ref({})
+export const user = ref<Record<string, unknown> | null>({})
 export const setUser = (data: Record<string, unknown> | null) => {
   user.value = data
 }
