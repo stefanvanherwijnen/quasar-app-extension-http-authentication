@@ -61,12 +61,12 @@
             :label="lang.auth.login.rememberMe"
           />
           <br>
-          <q-btn v-if="passwordForgotUrl" :label="lang.auth.login.passwordForgot" size="sm" flat :to="passwordForgotUrl"></q-btn>
+          <q-btn v-if="passwordForgotUrl" :label="lang.auth.login.passwordForgot" size="sm" flat :to="passwordForgotUrl" @click="toPasswordForgot"></q-btn>
           <!-- <a class="cursor-pointer text-blue text-underline" @click="toPasswordForgot">{{ lang.auth.login.passwordForgot }}</a> -->
         </q-card-section>
 
         <q-card-actions align="between">
-          <q-btn v-if="registerUrl" :label="lang.auth.login.createAccount" size="sm" flat :to="registerUrl"></q-btn>
+          <q-btn v-if="registerUrl" :label="lang.auth.login.createAccount" size="sm" flat :to="registerUrl" @click="toRegister"></q-btn>
           <q-btn
             :label="lang.auth.login.login"
             color="primary"
@@ -88,7 +88,9 @@ export default defineComponent({
   name: 'LoginComponent',
 
   emits: {
-    submit: null
+    submit: null,
+    toPasswordForgot: null,
+    toRegister: null
   },
   props: {
     identifierField: {
@@ -145,6 +147,9 @@ export default defineComponent({
       })
     }
 
+    const toRegister = () => emit('toRegister')
+    const toPasswordForgot = () => emit('toPasswordForgot')
+
     return {
       form,
       user,
@@ -153,7 +158,9 @@ export default defineComponent({
       validations,
       identifierField,
       showPassword,
-      submit
+      submit,
+      toRegister,
+      toPasswordForgot
     }
   }
 })
