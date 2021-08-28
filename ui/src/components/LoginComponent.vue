@@ -142,7 +142,7 @@ export default defineComponent({
 
     function submit (evt) {
       form.value?.validate().then(() => {
-        emit('submit', { user: user.value, rememberMe: rememberMe.value })
+        emit('submit', { ...user.value, rememberMe: rememberMe.value })
         if (qForm.value) evt.target.submit()
       })
     }
