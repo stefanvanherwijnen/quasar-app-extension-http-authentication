@@ -2,7 +2,7 @@ export default {
   auth: {
     submit: 'Enviar',
     myAccount: 'Mi cuenta',
-    navigation: 'Navigation',
+    navigation: 'Navegación',
     fields: {
       email: 'Email',
       username: 'Nombre de Usuario',
