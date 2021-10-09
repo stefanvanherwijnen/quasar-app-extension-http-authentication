@@ -42,9 +42,9 @@ export default {
     },
     password: {
       forgot: {
-        header: 'Request a new password',
-        checkEmail: 'Please check your email to reset your password. If you do not receive an email, make sure your email adres is registered.',
-        unknownEmail: 'Email address is not registered.'
+        header: 'Solicitar nueva contraseña',
+        checkEmail: 'Por favor revise su email para restablecer su contraseña. Si no recibe el email, asegúrese de que su dirección de email esté registrada o sea la correcta.',
+        unknownEmail: 'La dirección de email ingresada no se encuentra registrada.'
       },
       reset: {
         header: 'Restablecer su contraseña',
