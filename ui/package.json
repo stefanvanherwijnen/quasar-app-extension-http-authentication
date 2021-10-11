@@ -27,6 +27,7 @@
   "bugs": "https://github.com/stefanvanherwijnen/quasar-app-extension-http-authentication/issues",
   "devDependencies": {
     "@quasar/extras": "^1.11.2",
+    "@stefanvh/quasar-app-vite": "^0.2.5",
     "@types/validator": "^13.6.3",
     "@vitejs/plugin-vue": "^1.9.3",
     "axios": "^0.22.0",
@@ -37,7 +38,6 @@
     "vite": "^2.6.5"
   },
   "dependencies": {
-    "@stefanvh/quasar-app-vite": "file:.yalc/@stefanvh/quasar-app-vite",
     "validator": "^13.6.0"
   },
   "peerDependencies": {
