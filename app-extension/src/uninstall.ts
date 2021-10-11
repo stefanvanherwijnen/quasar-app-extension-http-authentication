@@ -5,8 +5,8 @@
  * API: https://github.com/quasarframework/quasar/blob/master/app/lib/app-extension/UninstallAPI.js
  */
 
-import { UninstallAPI } from '@quasar/app'
+// import { UninstallAPI } from '@quasar/app'
 
-export = function (api: UninstallAPI) {
+export default function (api: any) {
   //
 }

@@ -6,17 +6,31 @@
  * API: https://github.com/quasarframework/quasar/blob/master/app/lib/app-extension/IndexAPI.js
  */
 
-import { IndexAPI } from '@quasar/app'
+// import { IndexAPI } from '@quasar/app'
 
 function extendConf (conf: any) {
   // register our boot file
   conf.boot.push('~quasar-app-extension-http-authentication/src/boot/register.ts')
 
+  const components = [
+    'QCardSection',
+    'QInput',
+    'QIcon',
+    'QCheckbox',
+    'QBtn',
+    'QCardActions',
+    'QForm',
+    'QCard',
+    'QCardSection',
+    'QField'
+  ]
+  conf.framework.components.push(...components)
+
   // make sure app extension files & ui package gets transpiled
   conf.build.transpileDependencies.push(/quasar-app-extension-http-authentication[\\/]src/)
 }
 
-export = function (api: IndexAPI) {
+export default function (api: any) {
   // Quasar compatibility check; you may need
   // hard dependencies, as in a minimum version of the "quasar"
   // package or a minimum version of "@quasar/app" CLI

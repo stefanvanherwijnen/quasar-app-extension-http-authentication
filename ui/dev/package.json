@@ -1,0 +1,12 @@
+{
+  "name": "dev-server",
+  "type": "module",
+  "scripts": {
+    "dev": "yarn run quasar-vite dev"
+  },
+  "devDependencies": {},
+  "private": "true",
+  "dependencies": {
+    "@stefanvh/quasar-app-vite": "file:.yalc/@stefanvh/quasar-app-vite"
+  }
+}

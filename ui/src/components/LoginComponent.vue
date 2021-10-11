@@ -83,10 +83,29 @@
 import { defineComponent, ref, toRefs, computed, PropType } from 'vue'
 import isEmail from 'validator/es/lib/isEmail'
 import { useLang } from '../lang'
+import { 
+  QForm,
+  QBtn,
+  QCard,
+  QCardSection,
+  QCardActions,
+  QInput,
+  QCheckbox,
+  QIcon
+} from 'quasar'
 
 export default defineComponent({
   name: 'LoginComponent',
-
+  components: {
+    QForm,
+    QBtn,
+    QCard,
+    QCardSection,
+    QCardActions,
+    QInput,
+    QCheckbox,
+    QIcon
+  },
   emits: {
     submit: null,
     toPasswordForgot: null,

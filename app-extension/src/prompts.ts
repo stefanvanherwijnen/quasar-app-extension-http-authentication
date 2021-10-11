@@ -39,6 +39,6 @@
 
  */
 
-export = function () {
+export default function () {
   return []
 }

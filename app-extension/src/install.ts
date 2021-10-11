@@ -5,9 +5,9 @@
  * API: https://github.com/quasarframework/quasar/blob/master/app/lib/app-extension/InstallAPI.js
  */
 
-import { InstallAPI } from '@quasar/app'
+// import { InstallAPI } from '@quasar/app'
 
-export = function (api: InstallAPI) {
+export default function (api: any) {
   api.compatibleWith('quasar', '^2.0.0-beta.12')
   api.compatibleWith('@quasar/app', '^3.0.0-beta.11')
 

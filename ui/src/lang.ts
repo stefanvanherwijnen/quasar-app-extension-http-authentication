@@ -80,13 +80,15 @@ export const useLang = () => {
 
 export const loadLang = async (locale: string) => {
   try {
-    const data = (await import(`./lang/${locale}.ts`)).default
+    // Load transpiled files from dist folder. Vite does no dynamic imports
+    const data = (await import(`./lang/${locale}`)).default
 
     if (data) {
       lang.value = data
     }
 
   } catch (e) {
+    console.log(e)
     throw new Error(`Failed to load ${locale} locale.`)
   }
 }
