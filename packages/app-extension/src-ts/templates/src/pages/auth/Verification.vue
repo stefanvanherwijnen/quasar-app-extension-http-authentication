@@ -1,0 +1,28 @@
+<script lang="ts">
+import { defineComponent, onMounted } from 'vue'
+import { useRouter, useRoute } from 'vue-router'
+import { useVerify } from './auth'
+
+export default defineComponent({
+  name: 'VerificationPage',
+  components: {
+  
+  },
+  setup () {
+    const router = useRouter()
+    const route = useRoute()
+
+    const token = route.query.token as string
+
+    const { fetch: verify } = useVerify({ router })
+
+    onMounted(() => {
+      return verify(token)
+    })
+    
+    return {
+      router,
+    }
+  }
+})
+</script>

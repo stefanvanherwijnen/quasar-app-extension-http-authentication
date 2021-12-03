@@ -1,25 +1,15 @@
 {
-  "version": "2.0.1-beta.19",
+  "name": "quasar-app-extension-http-authentication-monorepo",
   "private": true,
   "workspaces": [
-    "app-extension",
-    "ui"
+    "packages/*"
   ],
   "scripts": {
-    "build": "yarn workspaces run build",
-    "release": "yarn run build && release-it"
+    "build": "run-s build:ui build:app-extension",
+    "build:ui": "cd packages/ui && pnpm run build",
+    "build:app-extension": "cd packages/app-extension && pnpm run build"
   },
   "devDependencies": {
-    "release-it": "^14.6.1",
-    "release-it-yarn-workspaces": "^2.0.1"
-  },
-  "release-it": {
-    "github": {
-      "release": true
-    },
-    "plugins": {
-      "release-it-yarn-workspaces": true
-    },
-    "npm": false
+    "npm-run-all": "^4.1.5"
   }
 }

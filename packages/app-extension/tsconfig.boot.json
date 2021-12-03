@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "lib": [
+      "ES2020",
+      "DOM"
+    ],
+    "strict": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    // "outDir": "./dist"
+    "outDir": "./src/boot/esm"
+  },
+  "include": [
+    "./src-ts/boot"
+  ],
+  "exclude": [
+    "./src-ts/templates"
+  ]
+}

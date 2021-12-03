@@ -1,0 +1,39 @@
+{
+  "0 debug pnpm:scope": {
+    "selected": 1
+  },
+  "1 debug pnpm:package-manifest": {
+    "initial": {
+      "name": "dev-server",
+      "type": "module",
+      "scripts": {
+        "dev": "yarn run quasar-vite dev"
+      },
+      "devDependencies": {},
+      "private": "true",
+      "dependencies": {
+        "@stefanvh/quasar-app-vite": "file:.yalc/@stefanvh/quasar-app-vite"
+      }
+    },
+    "prefix": "/home/stefan/HomeLaptop/Projects/Personal/quasar-app-extension-http-authentication/ui/dev"
+  },
+  "2 debug pnpm:context": {
+    "currentLockfileExists": false,
+    "storeDir": "/home/stefan/.pnpm-store/v3",
+    "virtualStoreDir": "/home/stefan/HomeLaptop/Projects/Personal/quasar-app-extension-http-authentication/ui/dev/node_modules/.pnpm"
+  },
+  "3 debug pnpm:stage": {
+    "prefix": "/home/stefan/HomeLaptop/Projects/Personal/quasar-app-extension-http-authentication/ui/dev",
+    "stage": "resolution_started"
+  },
+  "4 error pnpm": {
+    "code": "ERR_PNPM_LINKED_PKG_DIR_NOT_FOUND",
+    "pkgsStack": [],
+    "err": {
+      "name": "pnpm",
+      "message": "Could not install from \"/home/stefan/HomeLaptop/Projects/Personal/quasar-app-extension-http-authentication/ui/dev/.yalc/@stefanvh/quasar-app-vite\" as it does not exist.",
+      "code": "ERR_PNPM_LINKED_PKG_DIR_NOT_FOUND",
+      "stack": "pnpm: Could not install from \"/home/stefan/HomeLaptop/Projects/Personal/quasar-app-extension-http-authentication/ui/dev/.yalc/@stefanvh/quasar-app-vite\" as it does not exist.\n    at Object.resolveLocal [as default] (/snapshot/dist/pnpm.cjs)\n    at async Object.resolve (/snapshot/dist/pnpm.cjs)\n    at async run (/snapshot/dist/pnpm.cjs)"
+    }
+  }
+}
