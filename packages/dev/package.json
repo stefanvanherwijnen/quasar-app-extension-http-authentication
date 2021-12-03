@@ -10,8 +10,8 @@
     "quasar": "^2.3.3",
     "vue": "^3.2.20",
     "vue-router": "^4.0.11",
-    "quasar-app-extension-http-authentication": "2.0.1-beta.19",
-    "quasar-ui-http-authentication": "2.0.1-beta.19"
+    "quasar-app-extension-http-authentication": "^2.0.1-beta.20",
+    "quasar-ui-http-authentication": "^2.0.1-beta.20"
   },
   "devDependencies": {
     "@stefanvh/quasar-app-vite": "^0.6.1"
