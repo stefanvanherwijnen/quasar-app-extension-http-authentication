@@ -48,6 +48,8 @@ LoginComponent, ConsentComponent, RegisterComponent, PasswordResetComponent, Pas
 
 `quasar-ui-http-authentication` exports multiple helper functions for getting/setting cookies and opening dialogs. See [helpers.ts](../ui/src/utils/helpers.ts).
 
+If you use specific authentication logic and routes (e.g. for a specific framework) and want to share it with other users, you are welcome to submit a PR. At this moment no standard authentication logic is provided.
+
 # Donate
 
 If you appreciate the work that went into this App Extension, please consider [donating to Quasar](https://donate.quasar.dev).
