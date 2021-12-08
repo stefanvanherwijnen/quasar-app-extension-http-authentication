@@ -1,4 +1,3 @@
-"use strict";
 /**
  * Quasar App Extension index/runner script
  * (runs on each dev/build)
@@ -10,8 +9,6 @@
 function extendConf(conf) {
     // register our boot file
     conf.boot.push('~quasar-app-extension-http-authentication/src/boot/register');
-    conf.build.transpileDependencies.push(/quasar-app-extension-http-authentication[\\/]src/);
-    conf.build.transpileDependencies.push(/quasar-ui-http-authentication[\\/]src/);
     const components = [
         'QCardSection',
         'QInput',
@@ -42,11 +39,11 @@ function index(api) {
     // Quasar compatibility check; you may need
     // hard dependencies, as in a minimum version of the "quasar"
     // package or a minimum version of "@quasar/app" CLI
-    api.compatibleWith('quasar', '^2.0.0');
-    api.compatibleWith('@quasar/app', '^3.0.0');
+    // api.compatibleWith('quasar', '^2.0.0')
+    // api.compatibleWith('@quasar/app', '^3.0.0')
     // Uncomment the line below if you provide a JSON API for your component
     // api.registerDescribeApi('MyComponent', '~quasar-ui-http-authentication/src/components/MyComponent.json')
     // We extend /quasar.conf.js
     api.extendQuasarConf(extendConf);
 }
-module.exports = index;
+export default index;

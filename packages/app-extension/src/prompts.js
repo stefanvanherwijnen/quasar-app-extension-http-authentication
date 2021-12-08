@@ -1,4 +1,3 @@
-"use strict";
 /**
  * Quasar App Extension prompts script
  *
@@ -42,4 +41,4 @@
 const prompts = function () {
     return [];
 };
-module.exports = prompts;
+export default prompts;

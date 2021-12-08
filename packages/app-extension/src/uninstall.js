@@ -1,4 +1,3 @@
-"use strict";
 /**
  * Quasar App Extension uninstall script
  *
@@ -9,4 +8,4 @@
 const uninstall = function (api) {
     //
 };
-module.exports = uninstall;
+export default uninstall;

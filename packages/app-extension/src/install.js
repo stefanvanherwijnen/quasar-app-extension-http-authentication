@@ -1,4 +1,3 @@
-"use strict";
 /**
  * Quasar App Extension install script
  *
@@ -12,4 +11,4 @@ const install = function (api) {
     api.render('./templates');
     console.log('Do not forget to add the corresponding routes to your routes file.');
 };
-module.exports = install;
+export default install;

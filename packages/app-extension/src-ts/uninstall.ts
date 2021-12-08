@@ -11,4 +11,4 @@ const uninstall = function (api: any) {
   //
 }
 
-export = uninstall
+export default uninstall

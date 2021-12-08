@@ -17,4 +17,4 @@ const install = function (api: any) {
 
 }
 
-export = install
+export default install

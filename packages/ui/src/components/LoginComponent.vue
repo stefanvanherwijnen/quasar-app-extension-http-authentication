@@ -80,7 +80,7 @@
 </template>
 
 <script lang="ts">
-import { getCurrentInstance, defineComponent, ref, toRefs, computed, PropType } from 'vue'
+import { defineComponent, ref, toRefs, computed, PropType } from 'vue'
 import isEmail from 'validator/es/lib/isEmail'
 import { useLang } from '../lang'
 import { 

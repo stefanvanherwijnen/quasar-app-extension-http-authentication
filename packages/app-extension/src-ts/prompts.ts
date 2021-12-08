@@ -43,4 +43,4 @@ const prompts = function () {
   return []
 }
 
-export = prompts
+export default prompts
