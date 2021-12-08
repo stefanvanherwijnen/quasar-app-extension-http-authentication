@@ -8,8 +8,8 @@
 // import { InstallAPI } from '@quasar/app'
 
 const install = function (api: any) {
-  api.compatibleWith('quasar', '^2.0.0-beta.12')
-  api.compatibleWith('@quasar/app', '^3.0.0-beta.11')
+  api.compatibleWith('quasar', '^2.0.0')
+  api.compatibleWith('@quasar/app', '^3.0.0')
 
   api.render('./templates')
 
