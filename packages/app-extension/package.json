@@ -34,6 +34,7 @@
     "typescript": "^4.5.2"
   },
   "peerDependencies": {
+    "vue": "^3.2.23",
     "quasar": "^2.3.2",
     "quasar-ui-http-authentication": "^2.0.1"
   },

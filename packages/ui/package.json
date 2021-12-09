@@ -41,6 +41,7 @@
     "validator": "^13.6.0"
   },
   "peerDependencies": {
+    "vue": "^3.2.23",
     "@quasar/extras": "^1.12.1",
     "quasar": "^2.3.3",
     "validator": "^13.6.0"
