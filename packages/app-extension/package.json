@@ -4,6 +4,7 @@
   "description": "HTTP authentication for Quasar framework",
   "author": "Stefan van Herwijnen",
   "license": "MIT",
+  "type": "module",
   "exports": {
     ".": "./src/index.js",
     "./index": "./src/index.js",
@@ -11,7 +12,7 @@
     "./uninstall": "./src/uninstall.js",
     "./prompts": "./src/prompts.js",
     "./src/boot/*": {
-      "require": "./src/bootd/*",
+      "require": "./src/boot/*",
       "import": "./src/boot/esm/*"
     },
     "./src/*": "./src/*.js"
@@ -25,6 +26,9 @@
   },
   "bugs": "https://github.com/stefanvanherwijnen/quasar-app-extension-http-authentication/issues",
   "homepage": "",
+  "dependencies": {
+    "quasar-ui-http-authentication": "^2.0.2"
+  },
   "devDependencies": {
     "@types/node": "^16.3.0",
     "rimraf": "^3.0.2",
