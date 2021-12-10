@@ -1,6 +1,6 @@
 {
   "name": "quasar-app-extension-http-authentication",
-  "version": "3.0.0-alpha.1",
+  "version": "3.0.0-alpha.0",
   "description": "HTTP authentication for Quasar framework",
   "author": "Stefan van Herwijnen <stefan@devliert.info>",
   "license": "MIT",
