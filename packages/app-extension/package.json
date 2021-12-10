@@ -4,20 +4,17 @@
   "description": "HTTP authentication for Quasar framework",
   "author": "Stefan van Herwijnen <stefan@devliert.info>",
   "license": "MIT",
+  "type": "module",
   "exports": {
-    ".": "./src/index.js",
-    "./index": "./src/index.js",
-    "./install": "./src/install.js",
-    "./uninstall": "./src/uninstall.js",
-    "./prompts": "./src/prompts.js",
-    "./src/boot/*": {
-      "require": "./src/bootd/*",
-      "import": "./src/boot/esm/*"
-    },
-    "./src/*": "./src/*.js"
+    ".": "./dist/index.js",
+    "./index": "./dist/index.js",
+    "./install": "./dist/install.js",
+    "./uninstall": "./dist/uninstall.js",
+    "./prompts": "./dist/prompts.js",
+    "./boot": "./dist/boot/register.js"
   },
   "scripts": {
-    "build": "rimraf ./src && tsc && tsc -p tsconfig.boot.json && cp -r ./src-ts/templates/ ./src/templates/"
+    "build": "rimraf ./dist && tsc && cp -r ./src/templates/ ./dist/templates/"
   },
   "repository": {
     "type": "git",

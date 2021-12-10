@@ -12,13 +12,12 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
-    // "outDir": "./dist"
-    "outDir": "./src"
+    "outDir": "./dist"
   },
   "include": [
-    "./src-ts"
+    "./src"
   ],
   "exclude": [
-    "./src-ts/templates"
+    "./src/templates"
   ]
 }

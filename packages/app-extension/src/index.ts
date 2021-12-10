@@ -10,7 +10,7 @@
 
 function extendConf (conf: any) {
   // register our boot file
-  conf.boot.push('~quasar-app-extension-http-authentication/src/boot/register')
+  conf.boot.push('~quasar-app-extension-http-authentication/boot')
 
   const components = [
     'QCardSection',
