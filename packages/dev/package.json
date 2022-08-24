@@ -1,6 +1,6 @@
 {
   "name": "dev-server",
-  "private": "true",
+  "private": true,
   "type": "module",
   "scripts": {
     "dev": "pnpm run quasar-vite dev"
