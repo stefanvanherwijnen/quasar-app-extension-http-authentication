@@ -2,7 +2,9 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import { readFile } from 'fs/promises'
 import { dirname, basename, resolve, join, normalize, sep } from 'path'
-const version = JSON.parse(await readFile(new URL('./package.json', import.meta.url))).version
+const version = JSON.parse(
+  await readFile(new URL('./package.json', import.meta.url))
+).version
 // import { QuasarPlugin } from '@stefanvh/quasar-app-vite'
 // import { getAppPaths } from '@stefanvh/quasar-app-vite/lib/app-paths'
 import { existsSync } from 'fs'
@@ -26,7 +28,7 @@ export default defineConfig(async ({ command, mode }) => ({
     __UI_VERSION__: JSON.stringify(version)
   },
   plugins: [
-    vue(),
+    vue()
     // await QuasarPlugin({
     //   appPaths,
     //   loadQuasarConf: true
@@ -36,8 +38,8 @@ export default defineConfig(async ({ command, mode }) => ({
     preprocessorOptions: {
       sass: {
         additionalData: `@import "quasar/src/css/index"`
-      },
-    },
+      }
+    }
   },
   // resolve: {
   //   alias: [
@@ -54,7 +56,7 @@ export default defineConfig(async ({ command, mode }) => ({
       entry: './src/index.ts'
     },
     rollupOptions: {
-      external: ['vue', 'vue-router', 'quasar'],
+      external: ['vue', 'vue-router', 'quasar']
       // output: {
       //   globals: {
       //     vue: 'Vue',
@@ -63,5 +65,4 @@ export default defineConfig(async ({ command, mode }) => ({
       // }
     }
   }
-})
-)
+}))

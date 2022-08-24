@@ -2,10 +2,7 @@
   "compilerOptions": {
     "target": "esnext",
     "module": "esnext",
-    "lib": [
-      "ES2020",
-      "DOM"
-    ],
+    "lib": ["ES2020", "DOM"],
     "strict": true,
     "moduleResolution": "node",
     "esModuleInterop": true,
@@ -14,10 +11,6 @@
     "resolveJsonModule": true,
     "outDir": "./dist"
   },
-  "include": [
-    "./src"
-  ],
-  "exclude": [
-    "./src/templates"
-  ]
+  "include": ["./src"],
+  "exclude": ["./src/templates"]
 }

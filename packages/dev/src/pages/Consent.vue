@@ -11,22 +11,27 @@
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-  components: {
-  },
+  components: {},
   setup() {
     const client = {
       clientName: 'Test client',
       clientUri: 'https://localhost'
     }
-    const scopes = [{
-      name: 'Test scope'
-    }]
-    const claims = [{
-      name: 'Test claim'
-    }]
-    const resourceScopes = [{
-      name: 'Test resource scope'
-    }]
+    const scopes = [
+      {
+        name: 'Test scope'
+      }
+    ]
+    const claims = [
+      {
+        name: 'Test claim'
+      }
+    ]
+    const resourceScopes = [
+      {
+        name: 'Test resource scope'
+      }
+    ]
 
     return {
       client,
@@ -34,6 +39,6 @@ export default defineComponent({
       claims,
       resourceScopes
     }
-  },
+  }
 })
 </script>

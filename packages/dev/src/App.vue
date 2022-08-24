@@ -8,11 +8,8 @@
 import { defineComponent, onMounted } from 'vue'
 // import Dialog from 'quasar/src/plugins/Dialog.js'
 export default defineComponent({
-  components: {
-  },
-  setup() {
-
-  }
+  components: {},
+  setup() {}
 })
 </script>
 

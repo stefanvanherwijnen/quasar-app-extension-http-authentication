@@ -1,8 +1,6 @@
 export interface IconSet {
-  name: string,
-  auth: {
-
-  }
+  name: string
+  auth: {}
 }
 
 import { ref } from 'vue'

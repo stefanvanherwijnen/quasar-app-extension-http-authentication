@@ -1,4 +1,4 @@
-import { Language } from "../lang"
+import type { Language } from '../lang'
 
 const lang: Language = {
   lang: 'vi',
@@ -34,17 +34,21 @@ const lang: Language = {
       register: 'Đăng ký',
       invalidData:
         'Máy chủ không thể xử lí yêu cầu. Vui lòng kiểm tra lại thông tin.',
-      alreadyRegistered:
-        'Email này đã được đăng ký. Vui lòng kiểm tra email để xác thực.',
+      alreadyRegistered: 'Email này đã được đăng ký.',
       accountCreated:
+        'Your account has been sucessfully created. You can now login with your credentials.',
+      verificationRequired:
         'Vui lòng kiểm tra email để xác thực. Việc này có thể mất tối đa 10 phút. Hãy kiểm tra thư mục spam nếu bạn không nhận được email.',
-      checkEmail: (email: string) => `Bạn muốn đăng ký với email này <b>${email}</b>?`,
-      error: 'Có gì đó không ổn.',
+      checkEmail: (email: string) =>
+        `Bạn muốn đăng ký với email này <b>${email}</b>?`,
+      error: 'Có gì đó không ổn.'
     },
     verification: {
       success: 'Tài khoản đã xác thực. Bạn có thể đăng nhập ngay.',
-      failed: 'Xác thực lỗi hoặc tài khoản đã được xác thực. Hãy thử đăng nhập.',
-      slider: 'Please drag the slider all the way to the right until it turns green.'
+      failed:
+        'Xác thực lỗi hoặc tài khoản đã được xác thực. Hãy thử đăng nhập.',
+      slider:
+        'Please drag the slider all the way to the right until it turns green.'
     },
     logout: {
       confirmation: 'Bạn có chắc muốn đăng xuất?',
@@ -55,7 +59,8 @@ const lang: Language = {
     password: {
       forgot: {
         header: 'Lấy lại mật khẩu',
-        checkEmail: 'Vui lòng kiểm tra email để lấy lại mật khẩu. Nếu không nhận được email, chắc chắn email đã được đăng ký.',
+        checkEmail:
+          'Vui lòng kiểm tra email để lấy lại mật khẩu. Nếu không nhận được email, chắc chắn email đã được đăng ký.',
         unknownEmail: 'Email chưa được đăng ký.'
       },
       reset: {
@@ -66,7 +71,8 @@ const lang: Language = {
     },
     validations: {
       required: 'Trường này là bắt buộc.',
-      passwordLength: (length: string | number) => `Mật khẩu phải có ít nhất ${length} kí tự.`,
+      passwordLength: (length: string | number) =>
+        `Mật khẩu phải có ít nhất ${length} kí tự.`,
       passwordMatch: 'Mật khẩu không trùng.',
       email: 'Email không đúng định dạng.',
       username: 'Tên đăng nhập chỉ được chưa các kí tự chữ và số.'

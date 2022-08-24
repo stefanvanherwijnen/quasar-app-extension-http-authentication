@@ -1,9 +1,10 @@
-import { Ref, ref } from 'vue'
-import { QVueGlobals } from 'quasar'
-import { Router } from 'vue-router'
+import type { Ref } from 'vue'
+import { ref } from 'vue'
+import type { QVueGlobals } from 'quasar'
+import type { Router } from 'vue-router'
 
 import 'vue-router'
-import { Language } from '../lang'
+import type { Language } from '../lang'
 declare module 'vue-router' {
   interface RouteMeta {
     requiresAuth?: boolean
@@ -21,10 +22,13 @@ export const useUser = () => {
   return user.value
 }
 export const isLoggedIn = () => {
-  return user.value !== null
+  return user.value != null
 }
 
-export const checkUserRolesPermission = (userRoles: Array<string>, requiredRoles: Array<string>) => {
+export const checkUserRolesPermission = (
+  userRoles: Array<string>,
+  requiredRoles: Array<string>
+) => {
   for (const role in requiredRoles) {
     if (!userRoles.includes(role)) {
       return false
@@ -33,7 +37,11 @@ export const checkUserRolesPermission = (userRoles: Array<string>, requiredRoles
   return true
 }
 
-export const setTokenCookie = ($q: QVueGlobals, token: string, rememberMe?: boolean) => {
+export const setTokenCookie = (
+  $q: QVueGlobals,
+  token: string,
+  rememberMe?: boolean
+) => {
   if (rememberMe) {
     $q.cookies.set('authorization_token', token, {
       expires: 365,
@@ -41,7 +49,7 @@ export const setTokenCookie = ($q: QVueGlobals, token: string, rememberMe?: bool
     })
   } else {
     $q.cookies.set('authorization_token', token, {
-      secure: true 
+      secure: true
     })
   }
 }
@@ -54,40 +62,63 @@ export const getTokenCookie = ($q: QVueGlobals) => {
   return $q.cookies.get('authorization_token')
 }
 
-const createDialog = 
-({title, message, ok, cancel, $q }: {title?: string, message: string, ok?: string, cancel?: string, $q: QVueGlobals }) =>
-({onOk, onCancel}: { onOk?: Function, onCancel?: Function}) => {
-  $q.dialog({
+const createDialog =
+  ({
+    title,
+    message,
+    ok,
+    cancel,
+    $q
+  }: {
+    title?: string
+    message: string
+    ok?: string
+    cancel?: string
+    $q: QVueGlobals
+  }) =>
+  ({ onOk, onCancel }: { onOk?: Function; onCancel?: Function }) => {
+    $q.dialog({
       title,
       message,
       ok,
       cancel
-    }).onOk(() => {
-      removeTokenCookie($q)
-      if (onOk) onOk()
-    }).onCancel(() => {
-      if (onCancel) onCancel($q)
     })
-}
+      .onOk(() => {
+        removeTokenCookie($q)
+        if (onOk) onOk()
+      })
+      .onCancel(() => {
+        if (onCancel) onCancel($q)
+      })
+  }
 
-export const verificationRequiredDialog = ($q: QVueGlobals, callbacks: { onOk?: Function, onCancel?: Function }, lang: Ref<Language>) => {
-
+export const verificationRequiredDialog = (
+  $q: QVueGlobals,
+  callbacks: { onOk?: Function; onCancel?: Function },
+  lang: Ref<Language>
+) => {
   createDialog({
     $q,
     message: lang.value.auth.login.verificationRequired
   })(callbacks)
 }
 
-export const invalidCredentialsDialog = ($q: QVueGlobals, callbacks: { onOk?: Function, onCancel?: Function }, lang: Ref<Language>) => {
-
+export const invalidCredentialsDialog = (
+  $q: QVueGlobals,
+  callbacks: { onOk?: Function; onCancel?: Function },
+  lang: Ref<Language>
+) => {
   createDialog({
     $q,
     message: lang.value.auth.login.invalidCredentials
   })(callbacks)
 }
 
-export const logoutDialog = ($q: QVueGlobals, callbacks: { onOk?: Function, onCancel?: Function }, lang: Ref<Language>) => {
-
+export const logoutDialog = (
+  $q: QVueGlobals,
+  callbacks: { onOk?: Function; onCancel?: Function },
+  lang: Ref<Language>
+) => {
   createDialog({
     $q,
     title: lang.value.auth.logout.confirm,
@@ -97,87 +128,127 @@ export const logoutDialog = ($q: QVueGlobals, callbacks: { onOk?: Function, onCa
   })(callbacks)
 }
 
-export const unknownEmailDialog = ($q: QVueGlobals, callbacks: { onOk?: Function, onCancel?: Function }, lang: Ref<Language>) => {
-
+export const unknownEmailDialog = (
+  $q: QVueGlobals,
+  callbacks: { onOk?: Function; onCancel?: Function },
+  lang: Ref<Language>
+) => {
   createDialog({
     $q,
     message: lang.value.auth.password.forgot.unknownEmail
   })(callbacks)
 }
 
-export const checkEmailDialog = ($q: QVueGlobals, callbacks: { onOk?: Function, onCancel?: Function }, lang: Ref<Language>) => {
-
+export const checkEmailDialog = (
+  $q: QVueGlobals,
+  callbacks: { onOk?: Function; onCancel?: Function },
+  lang: Ref<Language>
+) => {
   createDialog({
     $q,
     message: lang.value.auth.password.forgot.checkEmail
   })(callbacks)
 }
 
-export const passwordResetSuccessDialog = ($q: QVueGlobals, callbacks: { onOk?: Function, onCancel?: Function }, lang: Ref<Language>) => {
-
+export const passwordResetSuccessDialog = (
+  $q: QVueGlobals,
+  callbacks: { onOk?: Function; onCancel?: Function },
+  lang: Ref<Language>
+) => {
   createDialog({
     $q,
     message: lang.value.auth.password.reset.success
   })(callbacks)
 }
 
-export const accountCreatedDialog = ($q: QVueGlobals, callbacks: { onOk?: Function, onCancel?: Function }, lang: Ref<Language>) => {
-
+export const accountCreatedDialog = (
+  $q: QVueGlobals,
+  callbacks: { onOk?: Function; onCancel?: Function },
+  lang: Ref<Language>
+) => {
   createDialog({
     $q,
     message: lang.value.auth.register.accountCreated
   })(callbacks)
 }
 
-export const invalidDataDialog = ($q: QVueGlobals, callbacks: { onOk?: Function, onCancel?: Function }, lang: Ref<Language>) => {
-
+export const invalidDataDialog = (
+  $q: QVueGlobals,
+  callbacks: { onOk?: Function; onCancel?: Function },
+  lang: Ref<Language>
+) => {
   createDialog({
     $q,
     message: lang.value.auth.register.invalidData
   })(callbacks)
 }
 
-export const alreadyRegisteredDialog = ($q: QVueGlobals, callbacks: { onOk?: Function, onCancel?: Function }, lang: Ref<Language>) => {
-
+export const alreadyRegisteredDialog = (
+  $q: QVueGlobals,
+  callbacks: { onOk?: Function; onCancel?: Function },
+  lang: Ref<Language>
+) => {
   createDialog({
     $q,
     message: lang.value.auth.register.alreadyRegistered
   })(callbacks)
 }
 
-export const registrationErrorDialog = ($q: QVueGlobals, callbacks: { onOk?: Function, onCancel?: Function }, lang: Ref<Language>) => {
-
+export const registrationErrorDialog = (
+  $q: QVueGlobals,
+  callbacks: { onOk?: Function; onCancel?: Function },
+  lang: Ref<Language>
+) => {
   createDialog({
     $q,
     message: lang.value.auth.register.error
   })(callbacks)
 }
 
-export const verificationSuccessDialog = ($q: QVueGlobals, callbacks: { onOk?: Function, onCancel?: Function }, lang: Ref<Language>) => {
-
+export const verificationSuccessDialog = (
+  $q: QVueGlobals,
+  callbacks: { onOk?: Function; onCancel?: Function },
+  lang: Ref<Language>
+) => {
   createDialog({
     $q,
     message: lang.value.auth.verification.success
   })(callbacks)
 }
 
-export const verificationFailedDialog = ($q: QVueGlobals, callbacks: { onOk?: Function, onCancel?: Function }, lang: Ref<Language>) => {
-
+export const verificationFailedDialog = (
+  $q: QVueGlobals,
+  callbacks: { onOk?: Function; onCancel?: Function },
+  lang: Ref<Language>
+) => {
   createDialog({
     $q,
     message: lang.value.auth.verification.failed
   })(callbacks)
 }
 
-export function setRouteGuard (
-  { router, loggedIn, fetchUser, checkUserRoles }:
-  { router: Router, loggedIn: (requiredRoles?: string[]) => boolean, fetchUser: (requiredRoles?: string[]) => Promise<void>, checkUserRoles: (record: string[]) => boolean }
-  ){
+export function setRouteGuard({
+  router,
+  loggedIn,
+  fetchUser,
+  checkUserRoles
+}: {
+  router: Router
+  loggedIn: (requiredRoles?: string[]) => boolean
+  fetchUser: (requiredRoles?: string[]) => Promise<void>
+  checkUserRoles: (record: string[]) => boolean
+}) {
   router.beforeEach((to, from, next) => {
-    const requiresAuth = to.matched.find(record => record.meta.requiresAuth)?.meta.requiresAuth
-    const requiredRoles = to.matched.find(record => record.meta.requiredRoles)?.meta.requiredRoles
-    const unauthenticatedRouteLocation = to.matched.find(record => record.meta.unauthenticatedRouteLocation)?.meta.unauthenticatedRouteLocation
-    const unauthorizedRouteLocation = to.matched.find(record => record.meta.unauthorizedRouteLocation)?.meta.unauthorizedRouteLocation
+    const requiresAuth = to.matched.find((record) => record.meta.requiresAuth)
+      ?.meta.requiresAuth
+    const requiredRoles = to.matched.find((record) => record.meta.requiredRoles)
+      ?.meta.requiredRoles
+    const unauthenticatedRouteLocation = to.matched.find(
+      (record) => record.meta.unauthenticatedRouteLocation
+    )?.meta.unauthenticatedRouteLocation
+    const unauthorizedRouteLocation = to.matched.find(
+      (record) => record.meta.unauthorizedRouteLocation
+    )?.meta.unauthorizedRouteLocation
 
     // const checkAuthorization = () => {
     //   if (!loggedIn()) {
@@ -195,15 +266,24 @@ export function setRouteGuard (
 
     if (requiresAuth) {
       if (!loggedIn(requiredRoles)) {
-        return fetchUser(requiredRoles).then(() => {
-          if (!loggedIn(requiredRoles)) return next(unauthenticatedRouteLocation || '/')
-          if (requiredRoles && checkUserRoles && !checkUserRoles(requiredRoles)) return next(unauthorizedRouteLocation || { name: 'account' })
-          return next()
-        }).catch(() => {
-          return next(unauthenticatedRouteLocation || '/')
-        })
+        return fetchUser(requiredRoles)
+          .then(() => {
+            if (!loggedIn(requiredRoles))
+              return next(unauthenticatedRouteLocation || '/')
+            if (
+              requiredRoles &&
+              checkUserRoles &&
+              !checkUserRoles(requiredRoles)
+            )
+              return next(unauthorizedRouteLocation || { name: 'account' })
+            return next()
+          })
+          .catch(() => {
+            return next(unauthenticatedRouteLocation || '/')
+          })
       }
-      if (requiredRoles && checkUserRoles && !checkUserRoles(requiredRoles)) return next(unauthorizedRouteLocation || { name: 'account' })
+      if (requiredRoles && checkUserRoles && !checkUserRoles(requiredRoles))
+        return next(unauthorizedRouteLocation || { name: 'account' })
     }
 
     next()

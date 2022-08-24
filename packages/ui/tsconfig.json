@@ -2,10 +2,7 @@
   "compilerOptions": {
     "target": "esnext",
     "module": "esnext",
-    "lib": [
-      "ES2020",
-      "DOM"
-    ],
+    "lib": ["ES2020", "DOM"],
     "strict": true,
     "skipLibCheck": true,
     "moduleResolution": "node",
@@ -14,11 +11,7 @@
     "emitDeclarationOnly": true,
     "declarationDir": "./dist/types",
     "isolatedModules": true,
-    "types": [
-      "vite/client"
-    ]
+    "types": ["vite/client"]
   },
-  "include": [
-    "./src"
-  ]
+  "include": ["./src"]
 }

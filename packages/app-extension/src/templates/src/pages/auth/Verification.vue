@@ -5,10 +5,8 @@ import { useVerify } from './auth'
 
 export default defineComponent({
   name: 'VerificationPage',
-  components: {
-  
-  },
-  setup () {
+  components: {},
+  setup() {
     const router = useRouter()
     const route = useRoute()
 
@@ -19,9 +17,9 @@ export default defineComponent({
     onMounted(() => {
       return verify(token)
     })
-    
+
     return {
-      router,
+      router
     }
   }
 })

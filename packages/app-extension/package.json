@@ -23,7 +23,7 @@
   "bugs": "https://github.com/stefanvanherwijnen/quasar-app-extension-http-authentication/issues",
   "homepage": "",
   "dependencies": {
-    "quasar-ui-http-authentication": "^2.0.1-beta.19"
+    "quasar-ui-http-authentication": "^3.0.0-alpha.0"
   },
   "devDependencies": {
     "@types/node": "^16.3.0",
@@ -32,7 +32,7 @@
   },
   "peerDependencies": {
     "quasar": "^2.3.2",
-    "quasar-ui-http-authentication": "^2.0.1-beta.19"
+    "quasar-ui-http-authentication": "^3.0.0-alpha.0"
   },
   "engines": {
     "node": ">= 8.9.0",

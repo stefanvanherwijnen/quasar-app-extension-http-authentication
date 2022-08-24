@@ -8,7 +8,7 @@
 
 // import { IndexAPI } from '@quasar/app'
 
-function extendConf (conf: any) {
+function extendConf(conf: any) {
   // register our boot file
   conf.boot.push('~quasar-app-extension-http-authentication/boot')
 
@@ -24,11 +24,7 @@ function extendConf (conf: any) {
     'QCardSection',
     'QField'
   ]
-  const plugins = [
-    'Dialog',
-    'Notify',
-    'Cookies'
-  ]
+  const plugins = ['Dialog', 'Notify', 'Cookies']
   conf.framework.components.push(...components)
   conf.framework.plugins.push(...plugins)
   // if (conf.vite) {
@@ -39,7 +35,7 @@ function extendConf (conf: any) {
   // }
 }
 
-function index (api: any) {
+function index(api: any) {
   // Quasar compatibility check; you may need
   // hard dependencies, as in a minimum version of the "quasar"
   // package or a minimum version of "@quasar/app" CLI

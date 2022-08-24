@@ -16,10 +16,8 @@ import { useRouter } from 'vue-router'
 import { useLogin } from './auth'
 export default defineComponent({
   name: 'LoginPage',
-  components: {
-  
-  },
-  setup () {
+  components: {},
+  setup() {
     const { loading, fetch: login } = useLogin()
 
     return {

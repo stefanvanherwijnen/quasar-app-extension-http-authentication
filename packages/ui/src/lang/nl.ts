@@ -1,4 +1,4 @@
-import { Language } from "../lang"
+import type { Language } from '../lang'
 
 const lang: Language = {
   lang: 'nl',
@@ -23,28 +23,32 @@ const lang: Language = {
       rememberMe: 'Onthoud mij',
       registerMessage: 'Heeft u nog geen account aangemaakt?',
       register: 'Registreer hier.',
-      createAccount: 'Account aanmaken',
+      createAccount: 'Account aanmaken'
     },
     consent: {
-      message: (name: string) => `${name} is requesting access to your data.`,
-      deny: 'deny',
-      allow: 'allow'
+      message: (name: string) => `${name} vraagt toegang tot uw data.`,
+      deny: 'Weigeren',
+      allow: 'Accepteren'
     },
     register: {
       register: 'Registreren',
       invalidData:
         'Server kon het verzoek niet verwerken. Verzend a.u.b. geldige data.',
-      alreadyRegistered:
-        'Email adres is al geregistreerd. Controleer uw email voor verificatie.',
+      alreadyRegistered: 'Email adres is al geregistreerd.',
       accountCreated:
+        'Uw account is aangemaakt. U kunt nu inloggen met uw inloggegevens.',
+      verificationRequired:
         'Controleer uw email om uw registratie te bevestigen. Dit kan soms tot 10 minuten in beslag nemen. Controleert u ook de ongewenste email.',
-      checkEmail: (email: string) => `U wilt zich registreren met email adres: <b>${email}</b>, is dit correct?`,
+      checkEmail: (email: string) =>
+        `U wilt zich registreren met email adres: <b>${email}</b>, is dit correct?`,
       error: 'Er ging iets mis.'
     },
     verification: {
       success: 'Uw account is geverifieerd. U kunt nu inloggen.',
-      failed: 'Verificatie mislukt of account is al geverifieerd. Probeert u in te loggen.',
-      slider: 'Sleep a.u.b. de onderstaande balk helemaal naar rechts tot deze groen wordt.'
+      failed:
+        'Verificatie mislukt of account is al geverifieerd. Probeert u in te loggen.',
+      slider:
+        'Sleep a.u.b. de onderstaande balk helemaal naar rechts tot deze groen wordt.'
     },
     logout: {
       confirmation: 'Weet u zeker dat u wilt uitloggen?',
@@ -55,7 +59,8 @@ const lang: Language = {
     password: {
       forgot: {
         header: 'Nieuw wachtwoord aanvragen.',
-        checkEmail: 'Controleer a.u.b. uw email om een nieuw wachtwoord in te stellen. Mocht u geen email ontvangen, controleer dan of uw email adres wel geregistreerd is.',
+        checkEmail:
+          'Controleer a.u.b. uw email om een nieuw wachtwoord in te stellen. Mocht u geen email ontvangen, controleer dan of uw email adres wel geregistreerd is.',
         unknownEmail: 'Email adres is niet geregistreerd.'
       },
       reset: {
@@ -66,7 +71,8 @@ const lang: Language = {
     },
     validations: {
       required: 'Veld is vereist.',
-      passwordLength: (length: string | number) => `Het wachtwoord moet minimaal ${length} tekens lang zijn.`,
+      passwordLength: (length: string | number) =>
+        `Het wachtwoord moet minimaal ${length} tekens lang zijn.`,
       passwordMatch: 'Wachtwoorden komen niet overeen.',
       email: 'Ongeldig email adres.',
       username: 'Een gebruikersnaam mag alleen alphanumerieke tekens bevatten.'

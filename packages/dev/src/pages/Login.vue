@@ -13,15 +13,17 @@
 <script lang="ts">
 import { defineComponent, Ref, ref } from 'vue'
 import { useRouter } from 'vue-router'
-import { useLang, verificationRequiredDialog, invalidCredentialsDialog } from 'quasar-ui-http-authentication'
+import {
+  useLang,
+  verificationRequiredDialog,
+  invalidCredentialsDialog
+} from 'quasar-ui-http-authentication'
 import { useQuasar } from 'quasar'
 
 export default defineComponent({
   name: 'LoginPage',
-  components: {
-
-  },
-  setup (props, ctx) {
+  components: {},
+  setup(props, ctx) {
     const $q = useQuasar()
     const router = useRouter()
     const lang = useLang()
@@ -42,14 +44,17 @@ export default defineComponent({
           setTimeout(() => {
             resolve('200')
           }, 1000)
-        }).then((res: unknown) => {
-          return res
-        }).catch((res: unknown) => {
-          if (res === '401') return verificationRequiredDialog($q, {}, lang)
-          if (res === '403') return invalidCredentialsDialog($q, {}, lang)
-        }).finally(() => {
-          loading.value = false
         })
+          .then((res: unknown) => {
+            return res
+          })
+          .catch((res: unknown) => {
+            if (res === '401') return verificationRequiredDialog($q, {}, lang)
+            if (res === '403') return invalidCredentialsDialog($q, {}, lang)
+          })
+          .finally(() => {
+            loading.value = false
+          })
       }
 
       return { result, loading, fetch }

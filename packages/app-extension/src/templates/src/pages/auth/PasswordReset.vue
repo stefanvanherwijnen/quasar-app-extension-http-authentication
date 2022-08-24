@@ -15,10 +15,8 @@ import { usePasswordReset } from './auth'
 
 export default defineComponent({
   name: 'PasswordResetPage',
-  components: {
-  
-  },
-  setup () {
+  components: {},
+  setup() {
     const router = useRouter()
     const route = useRoute()
     const token = route.query.token

@@ -1,6 +1,4 @@
-<template>
-
-</template>
+<template></template>
 
 <script lang="ts">
 import { defineComponent, onMounted, ref } from 'vue'
@@ -13,10 +11,8 @@ import {
 import { useQuasar } from 'quasar'
 export default defineComponent({
   name: 'App',
-  components: {
-  
-  },
-  setup (props, ctx) {
+  components: {},
+  setup(props, ctx) {
     const $q = useQuasar()
     const router = useRouter()
     const ready = ref(false)
@@ -24,7 +20,7 @@ export default defineComponent({
     const lang = useLang()
 
     const token = 'token'
-    const fn = ({ router }: { router?: Router}) => {
+    const fn = ({ router }: { router?: Router }) => {
       /**
        * Replace with your own function
        */
@@ -36,17 +32,24 @@ export default defineComponent({
           setTimeout(() => {
             resolve('200')
           }, 1000)
-        }).then((res: unknown) => {
-          result.value = res
-          verificationSuccessDialog($q, {
-            onOk: () => router?.push('/login')
-          }, lang)
-          return res
-        }).catch((res: unknown) => {
-          return verificationFailedDialog($q, {}, lang)
-        }).finally(() => {
-          loading.value = false
         })
+          .then((res: unknown) => {
+            result.value = res
+            verificationSuccessDialog(
+              $q,
+              {
+                onOk: () => router?.push('/login')
+              },
+              lang
+            )
+            return res
+          })
+          .catch((res: unknown) => {
+            return verificationFailedDialog($q, {}, lang)
+          })
+          .finally(() => {
+            loading.value = false
+          })
       }
 
       return { result, loading, fetch }
@@ -61,7 +64,7 @@ export default defineComponent({
     const log = (val: string) => {
       console.log(val)
     }
-    
+
     return {
       router,
       ready,

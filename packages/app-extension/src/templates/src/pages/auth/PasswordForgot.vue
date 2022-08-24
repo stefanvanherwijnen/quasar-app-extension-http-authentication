@@ -13,14 +13,12 @@ import { useRouter } from 'vue-router'
 import { usePasswordForgot } from './auth'
 export default defineComponent({
   name: 'PasswordForgotPage',
-  components: {
-  
-  },
-  setup () {
+  components: {},
+  setup() {
     const router = useRouter()
 
     const { loading, fetch: passwordForgot } = usePasswordForgot()
-    
+
     return {
       router,
       loading,

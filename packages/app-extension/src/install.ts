@@ -13,8 +13,9 @@ const install = function (api: any) {
 
   api.render('./templates')
 
-  console.log('Do not forget to add the corresponding routes to your routes file.')
-
+  console.log(
+    'Do not forget to add the corresponding routes to your routes file.'
+  )
 }
 
 export default install

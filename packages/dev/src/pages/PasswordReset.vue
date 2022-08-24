@@ -9,19 +9,20 @@
 <script lang="ts">
 import { defineComponent, ref, Ref } from 'vue'
 import { useRouter, Router } from 'vue-router'
-import { passwordResetSuccessDialog, useLang } from 'quasar-ui-http-authentication'
+import {
+  passwordResetSuccessDialog,
+  useLang
+} from 'quasar-ui-http-authentication'
 
 export default defineComponent({
   name: 'App',
-  components: {
-  
-  },
-  setup (props, ctx) {
+  components: {},
+  setup(props, ctx) {
     const router = useRouter()
     const token = ref('token')
     const lang = useLang()
 
-    const fn = ({ router }: { router?: Router} = {}) => {
+    const fn = ({ router }: { router?: Router } = {}) => {
       /**
        * Replace with your own function
        */
@@ -33,15 +34,19 @@ export default defineComponent({
           setTimeout(() => {
             resolve('200')
           }, 1000)
-        }).then((res: unknown) => {
-          return passwordResetSuccessDialog({
-            onOk: () => router?.push('/login')
-          }, lang)
-        }).catch((res: unknown) => {
-
-        }).finally(() => {
-          loading.value = false
         })
+          .then((res: unknown) => {
+            return passwordResetSuccessDialog(
+              {
+                onOk: () => router?.push('/login')
+              },
+              lang
+            )
+          })
+          .catch((res: unknown) => {})
+          .finally(() => {
+            loading.value = false
+          })
       }
 
       return { result, loading, fetch }

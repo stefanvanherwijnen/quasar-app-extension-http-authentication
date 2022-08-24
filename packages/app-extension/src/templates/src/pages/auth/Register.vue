@@ -17,14 +17,10 @@ import { useRouter } from 'vue-router'
 import { useRegister } from './auth'
 export default defineComponent({
   name: 'RegisterPage',
-  components: {
-  
-  },
-  setup () {
+  components: {},
+  setup() {
     const router = useRouter()
-    const extraFields = ref([
-      { name: 'phone', label: 'Phone number' }
-    ])
+    const extraFields = ref([{ name: 'phone', label: 'Phone number' }])
 
     const { loading, fetch: register } = useRegister({ router })
 

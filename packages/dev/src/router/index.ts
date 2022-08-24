@@ -6,7 +6,7 @@ import {
 
 import routes from './routes'
 
-export default function createRouter () {
+export default function createRouter() {
   return _createRouter({
     // use appropriate history implementation for server/client
     // import.meta.env.SSR is injected by Vite.

@@ -1,12 +1,8 @@
 <template>
-  <q-card
-    v-if="lang"
-    square
-    style="width: 400px; padding:50px"
-  >
+  <q-card v-if="lang" square style="width: 400px; padding: 50px">
     <q-card-section class="text-center">
       <q-avatar v-if="client.logoUri">
-        <img :src="client.logoUri">
+        <img :src="client.logoUri" />
       </q-avatar>
       <div class="text-h6">{{ client.clientName }}</div>
       <a>{{ client.clientUri }}</a>
@@ -32,7 +28,10 @@
             {{ claim.name }}
           </q-item-section>
         </q-item>
-        <q-item v-for="resourceScope in resourceScopes" :key="resourceScope.name">
+        <q-item
+          v-for="resourceScope in resourceScopes"
+          :key="resourceScope.name"
+        >
           <q-item-section avatar>
             <q-icon color="green" name="check" />
           </q-item-section>
@@ -58,6 +57,10 @@
 import { defineComponent, toRefs } from 'vue'
 import { useLang } from '../lang'
 import {
+  QList,
+  QBtn,
+  QIcon,
+  QItem,
   QAvatar,
   QCard,
   QCardSection,
@@ -69,6 +72,10 @@ import {
 export default defineComponent({
   name: 'ConsentComponent',
   components: {
+    QList,
+    QBtn,
+    QIcon,
+    QItem,
     QAvatar,
     QCard,
     QCardSection,
@@ -100,7 +107,7 @@ export default defineComponent({
     const { emit } = ctx
     const { allowForm, denyForm } = toRefs(props)
     const lang = useLang()
-    
+
     const allow = (evt: any) => {
       emit('allow')
       if (allowForm.value) evt.target.submit()

@@ -44,12 +44,12 @@ import { name } from 'app/package.json'
 import routes from '../router/routes'
 
 export default {
-  setup () {
+  setup() {
     const leftDrawerOpen = ref(false)
 
     return {
       leftDrawerOpen,
-      toggleLeftDrawer () {
+      toggleLeftDrawer() {
         leftDrawerOpen.value = !leftDrawerOpen.value
       },
       name,

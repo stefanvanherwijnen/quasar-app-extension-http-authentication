@@ -1,10 +1,7 @@
 export default function (ctx) {
   return {
-    boot: [
-    ],
-    extras: [
-      'material-icons'
-    ],
+    boot: [],
+    extras: ['material-icons'],
     framework: {
       components: [
         'QCardSection',
@@ -21,10 +18,7 @@ export default function (ctx) {
         'QItem',
         'QSlider'
       ],
-      plugins: [
-        'Notify',
-        'Dialog'
-      ]
+      plugins: ['Notify', 'Dialog']
     }
   }
 }

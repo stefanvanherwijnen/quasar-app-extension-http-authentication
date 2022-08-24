@@ -26,15 +26,15 @@ import {
   LoginComponent,
   RegisterComponent,
   PasswordResetComponent,
-  PasswordForgotComponent,
-} from "quasar-ui-http-authentication";
+  PasswordForgotComponent
+} from 'quasar-ui-http-authentication'
 
 export default defineComponent({
   components: {
-    LoginComponent,
+    LoginComponent
     // any other components you wish to use
-  },
-});
+  }
+})
 ```
 
 You can now use the components in the template.
@@ -44,9 +44,9 @@ You can now use the components in the template.
 You can change the language used with `loadLang`:
 
 ```js
-import { loadLang } from "quasar-ui-http-authentication";
+import { loadLang } from 'quasar-ui-http-authentication'
 
-loadLang("nl");
+loadLang('nl')
 ```
 
 ## Helper functions

@@ -1,4 +1,4 @@
-import { Language } from "../lang"
+import type { Language } from '../lang'
 
 const lang: Language = {
   lang: 'en-us',
@@ -34,17 +34,21 @@ const lang: Language = {
       register: 'Register',
       invalidData:
         'Server could not process the request. Please correct the sent data.',
-      alreadyRegistered:
-        'Email address is already registered. Please check your email for verification.',
+      alreadyRegistered: 'Email address is already registered.',
       accountCreated:
+        'Your account has been sucessfully created. You can now login with your credentials.',
+      verificationRequired:
         'Please check your email to verify your registration. This sometimes can take up to 10 minutes. Please check the spam folder if the email has not been received.',
-      checkEmail: (email: string) => `You want to register with the email address <b>${email}</b>, is this correct?`,
-      error: 'Something went wrong.',
+      checkEmail: (email: string) =>
+        `You want to register with the email address <b>${email}</b>, is this correct?`,
+      error: 'Something went wrong.'
     },
     verification: {
       success: 'Your account has been verified. You can now login.',
-      failed: 'Verification has failed or the account has already been verified. Please try to login.',
-      slider: 'Please drag the slider all the way to the right until it turns green.'
+      failed:
+        'Verification has failed or the account has already been verified. Please try to login.',
+      slider:
+        'Please drag the slider all the way to the right until it turns green.'
     },
     logout: {
       confirmation: 'Are you sure you want to log out?',
@@ -55,7 +59,8 @@ const lang: Language = {
     password: {
       forgot: {
         header: 'Request a new password',
-        checkEmail: 'Please check your email to reset your password. If you do not receive an email, make sure your email adres is registered.',
+        checkEmail:
+          'Please check your email to reset your password. If you do not receive an email, make sure your email adres is registered.',
         unknownEmail: 'Email address is not registered.'
       },
       reset: {
@@ -66,7 +71,8 @@ const lang: Language = {
     },
     validations: {
       required: 'Field is required.',
-      passwordLength: (length: string | number) => `The minimum length of the password is ${length} characters.`,
+      passwordLength: (length: string | number) =>
+        `The minimum length of the password is ${length} characters.`,
       passwordMatch: 'Passwords do not match.',
       email: 'A valid email address is required.',
       username: 'A username may only contain alphanumeric characters.'

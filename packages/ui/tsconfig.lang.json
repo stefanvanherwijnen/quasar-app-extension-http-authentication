@@ -7,10 +7,6 @@
     "declaration": false,
     "outDir": "dist"
   },
-  "include": [
-    "./src/lang/*"
-  ],
-  "exclude": [
-    "./node_modules"
-  ]
+  "include": ["./src/lang/*"],
+  "exclude": ["./node_modules"]
 }

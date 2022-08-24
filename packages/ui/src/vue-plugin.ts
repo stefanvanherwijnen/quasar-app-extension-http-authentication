@@ -9,7 +9,7 @@ import { loadLang } from './lang'
 
 // const version = __UI_VERSION__
 
-function install (app: any, options: { lang: string }) {
+function install(app: any, options: { lang: string }) {
   loadLang(options?.lang || 'en-us')
   app.component(LoginComponent.name, LoginComponent)
   app.component(RegisterComponent.name, RegisterComponent)
@@ -17,7 +17,6 @@ function install (app: any, options: { lang: string }) {
   app.component(PasswordResetComponent.name, PasswordResetComponent)
   app.component(VerificationSlider.name, VerificationSlider)
   app.component(ConsentComponent.name, ConsentComponent)
-
 }
 
 export {

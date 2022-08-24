@@ -1,10 +1,6 @@
 <template>
   {{ lang.auth.verification.slider }}
-  <q-slider
-    v-model="sliderValue"
-    :color="sliderColor"
-    :readonly="completed"
-  />
+  <q-slider v-model="sliderValue" :color="sliderColor" :readonly="completed" />
 </template>
 
 <script lang="ts">
@@ -50,6 +46,6 @@ export default defineComponent({
       sliderColor,
       completed
     }
-  },
+  }
 })
 </script>

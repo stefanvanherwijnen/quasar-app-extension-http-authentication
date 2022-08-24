@@ -1,0 +1,9 @@
+**/dist
+**/node_modules
+**/*.hbs
+
+.github
+.changeset
+
+pnpm-lock.yaml
+pnpm-workspace.yaml

@@ -1,106 +1,106 @@
 <template>
-    <q-card
-      v-if="lang"
-      square
-      style="width: 400px; padding:50px"
-    >
+  <q-card v-if="lang" square style="width: 400px; padding: 50px">
+    <q-card-section>
+      <div class="text-h6">
+        {{ lang.auth.register.register }}
+      </div>
+      <q-btn
+        v-if="passwordForgotUrl"
+        :label="lang.auth.login.passwordForgot"
+        size="sm"
+        flat
+        :to="passwordForgotUrl"
+      ></q-btn>
+      <!-- <a class="cursor-pointer text-blue text-underline" @click="toPasswordForgot">{{ lang.auth.login.passwordForgot }}</a> -->
+    </q-card-section>
+
+    <q-form class="q-gutter-md" ref="form" @submit="submit" v-bind="qForm">
       <q-card-section>
-        <div class="text-h6">
-          {{ lang.auth.register.register }}
-        </div>
-        <q-btn v-if="passwordForgotUrl" :label="lang.auth.login.passwordForgot" size="sm" flat :to="passwordForgotUrl"></q-btn>
-        <!-- <a class="cursor-pointer text-blue text-underline" @click="toPasswordForgot">{{ lang.auth.login.passwordForgot }}</a> -->
+        <q-input
+          v-if="identifierField === 'email'"
+          id="email"
+          name="email"
+          v-model.trim="user.email"
+          type="email"
+          :label="lang.auth.fields.email"
+          bottom-slots
+          autofocus
+          :rules="validations['email']"
+          lazy-rules
+        />
+        <q-input
+          v-if="identifierField === 'username'"
+          v-model.trim="user.username"
+          name="username"
+          type="text"
+          :label="lang.auth.fields.username"
+          :rules="validations['username']"
+          lazy-rules
+        />
+        <q-input
+          v-for="field in extraFields"
+          :key="field.name"
+          v-model="user[field.name]"
+          type="text"
+          :name="field.name"
+          :label="field.label"
+          :rules="field.validation"
+          bottom-slots
+        />
+        <q-input
+          id="password"
+          name="password"
+          v-model="user.password"
+          :type="showPassword.password ? 'text' : 'password'"
+          :label="lang.auth.fields.password"
+          bottom-slots
+          :rules="validations['password']"
+          lazy-rules
+        >
+          <template v-slot:append>
+            <q-icon
+              :name="showPassword.password ? 'visibility' : 'visibility_off'"
+              class="cursor-pointer"
+              @click="showPassword.password = !showPassword.password"
+            />
+          </template>
+        </q-input>
+        <q-input
+          id="repeatPassword"
+          v-model="repeatPassword"
+          :type="showPassword.repeatPassword ? 'text' : 'password'"
+          :label="lang.auth.fields.repeatPassword"
+          bottom-slots
+          required
+          :rules="validations['repeatPassword']"
+          lazy-rules
+        >
+          <template v-slot:append>
+            <q-icon
+              :name="
+                showPassword.repeatPassword ? 'visibility' : 'visibility_off'
+              "
+              class="cursor-pointer"
+              @click="
+                showPassword.repeatPassword = !showPassword.repeatPassword
+              "
+            />
+          </template>
+        </q-input>
       </q-card-section>
+      <verification-slider @verified="verify" />
 
-      <q-form
-        class="q-gutter-md"
-        ref="form"
-        @submit="submit"
-        v-bind="qForm"
-      >
-        <q-card-section>
-          <q-input
-            v-if="identifierField === 'email'"
-            id="email"
-            name="email"
-            v-model.trim="user.email"
-            type="email"
-            :label="lang.auth.fields.email"
-            bottom-slots
-            autofocus
-            :rules="validations['email']"
-            lazy-rules
-          />
-          <q-input
-            v-if="identifierField === 'username'"
-            v-model.trim="user.username"
-            name="username"
-            type="text"
-            :label="lang.auth.fields.username"
-            :rules="validations['username']"
-            lazy-rules
-          />
-          <q-input
-            v-for="field in extraFields"
-            :key="field.name"
-            v-model="user[field.name]"
-            type="text"
-            :name="field.name"
-            :label="field.label"
-            :rules="field.validation"
-            bottom-slots
-          />
-          <q-input
-            id="password"
-            name="password"
-            v-model="user.password"
-            :type="showPassword.password ? 'text' : 'password'"
-            :label="lang.auth.fields.password"
-            bottom-slots
-            :rules="validations['password']"
-            lazy-rules
-          >
-            <template v-slot:append>
-              <q-icon
-                :name="showPassword.password ? 'visibility' : 'visibility_off'"
-                class="cursor-pointer"
-                @click="showPassword.password = !showPassword.password"
-              />
-            </template>
-          </q-input>
-          <q-input
-            id="repeatPassword"
-            v-model="repeatPassword"
-            :type="showPassword.repeatPassword ? 'text' : 'password'"
-            :label="lang.auth.fields.repeatPassword"
-            bottom-slots
-            required
-            :rules="validations['repeatPassword']"
-            lazy-rules
-          >
-            <template v-slot:append>
-              <q-icon
-                :name="showPassword.repeatPassword ? 'visibility' : 'visibility_off'"
-                class="cursor-pointer"
-                @click="showPassword.repeatPassword = !showPassword.repeatPassword"
-              />
-            </template>
-          </q-input>
-
-        </q-card-section>
-          <verification-slider @verified="verify" />
-
-        <q-card-actions align="right">
-          <q-btn
-            :label="lang.auth.register.register"
-            :loading="loading"
-            :disabled="!verified"
-            type="submit"
-            color="primary"
-          />
-        </q-card-actions>
-      </q-form>
-    </q-card>
+      <q-card-actions align="right">
+        <q-btn
+          :label="lang.auth.register.register"
+          :loading="loading"
+          :disabled="!verified"
+          type="submit"
+          color="primary"
+        />
+      </q-card-actions>
+    </q-form>
+  </q-card>
 </template>
 
 <script lang="ts">
@@ -111,7 +111,8 @@ import equals from 'validator/es/lib/equals.js'
 import isAlphanumeric from 'validator/es/lib/isAlphanumeric.js'
 
 import { useLang, loadLang } from '../lang'
-import { useQuasar,
+import {
+  useQuasar,
   QCard,
   QCardSection,
   QAvatar,
@@ -120,7 +121,9 @@ import { useQuasar,
   QItemSection,
   QCardActions,
   QForm,
-  QInput
+  QInput,
+  QBtn,
+  QIcon
 } from 'quasar'
 
 import VerificationSlider from './VerificationSlider.vue'
@@ -137,7 +140,9 @@ export default defineComponent({
     QItemSection,
     QCardActions,
     QForm,
-    QInput
+    QInput,
+    QBtn,
+    QIcon
   },
   emits: {
     submit: null
@@ -148,12 +153,14 @@ export default defineComponent({
       default: false
     },
     extraFields: {
-      type: Array as PropType<{
-        name: string
-        label: string
-        validation: ((val: string) => boolean)[]
-      }[]>,
-      default: () => ([])
+      type: Array as PropType<
+        {
+          name: string
+          label: string
+          validation: ((val: string) => boolean)[]
+        }[]
+      >,
+      default: () => []
     },
     minPasswordLength: {
       type: Number,
@@ -176,69 +183,79 @@ export default defineComponent({
     }
   },
 
-  setup (props, ctx) {
+  setup(props, ctx) {
     const $q = useQuasar()
     const { qForm } = toRefs(props)
     const lang = useLang()
     const { emit } = ctx
-    const { identifierField, extraFields, minPasswordLength, useVerification, passwordForgotUrl } = toRefs(props)
+    const {
+      identifierField,
+      extraFields,
+      minPasswordLength,
+      useVerification,
+      passwordForgotUrl
+    } = toRefs(props)
 
     const verified = ref(useVerification ? false : true)
-    const verify = () => verified.value = true
+    const verify = () => (verified.value = true)
 
     const form = ref<{
       validate: () => Promise<void>
     }>()
-    const user = ref<Record<string, string> >({
+    const user = ref<Record<string, string>>({
       [identifierField.value]: '',
       password: '',
-      ...(extraFields.value.reduce((acc: Record<string, string>, cur: { name: string }) => {
-        acc[cur.name] = ''
-        return acc
-      }, {}) as Record<string, string>)
+      ...(extraFields.value.reduce(
+        (acc: Record<string, string>, cur: { name: string }) => {
+          acc[cur.name] = ''
+          return acc
+        },
+        {}
+      ) as Record<string, string>)
     })
     const repeatPassword = ref('')
-    const validations = computed<Record<string, ((val: string) => (boolean | string))[]>>(() => ({
-        email: [
-          val => !!val || lang.value.auth.validations.required,
-          val => isEmail(val) || lang.value.auth.validations.email
-        ],
-        username: [
-          val => !!val || lang.value.auth.validations.required,
-          val => isAlphanumeric(val) || lang.value.auth.validations.username
-        ],
-        password: [
-          val => !!val || lang.value.auth.validations.required,
-          val =>
-            val.length >= minPasswordLength.value ||
-            lang.value.auth.validations.passwordLength(minPasswordLength.value)
-        ],
-        repeatPassword: [
-          val => !!val || lang.value.auth.validations.required,
-          val =>
-            equals(val, user.value.password) ||
-            lang.value.auth.validations.passwordMatch
-        ]
+    const validations = computed<
+      Record<string, ((val: string) => boolean | string)[]>
+    >(() => ({
+      email: [
+        (val) => !!val || lang.value.auth.validations.required,
+        (val) => isEmail(val) || lang.value.auth.validations.email
+      ],
+      username: [
+        (val) => !!val || lang.value.auth.validations.required,
+        (val) => isAlphanumeric(val) || lang.value.auth.validations.username
+      ],
+      password: [
+        (val) => !!val || lang.value.auth.validations.required,
+        (val) =>
+          val.length >= minPasswordLength.value ||
+          lang.value.auth.validations.passwordLength(minPasswordLength.value)
+      ],
+      repeatPassword: [
+        (val) => !!val || lang.value.auth.validations.required,
+        (val) =>
+          equals(val, user.value.password) ||
+          lang.value.auth.validations.passwordMatch
+      ]
     }))
     const showPassword = ref({
-          password: false,
-          repeatPassword: false
+      password: false,
+      repeatPassword: false
     })
 
-    function register (evt: any) {
+    function register(evt: any) {
       emit('submit', user.value)
       if (qForm.value) evt.target.submit()
     }
-      
-    function submit (evt: any) {
+
+    function submit(evt: any) {
       form.value?.validate().then(() => {
         if (user.value.email === 'email') {
           $q.dialog({
             html: true,
             message: lang.value.auth.register.checkEmail(user.value.email),
             cancel: true
-          })
-          .onOk(() => {
+          }).onOk(() => {
             register(evt)
           })
         } else {

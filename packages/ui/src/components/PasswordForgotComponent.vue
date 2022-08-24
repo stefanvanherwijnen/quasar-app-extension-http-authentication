@@ -1,21 +1,12 @@
 <template>
-  <q-card
-    v-if="lang"
-    square
-    style="width: 400px; padding:50px"
-  >
+  <q-card v-if="lang" square style="width: 400px; padding: 50px">
     <q-card-section>
       <div class="text-h6">
         {{ lang.auth.password.forgot.header }}
       </div>
     </q-card-section>
 
-    <q-form
-      class="q-gutter-md"
-      ref="form"
-      @submit="submit"
-      v-bind="qForm"
-    >
+    <q-form class="q-gutter-md" ref="form" @submit="submit" v-bind="qForm">
       <q-card-section>
         <q-input
           id="email"
@@ -46,13 +37,7 @@ import { defineComponent, ref, computed, toRefs } from 'vue'
 import isEmail from 'validator/es/lib/isEmail.js'
 
 import { useLang } from '../lang'
-import {
-  QCard,
-  QCardSection,
-  QCardActions,
-  QForm,
-  QInput
-} from 'quasar'
+import { QCard, QCardSection, QCardActions, QForm, QInput } from 'quasar'
 
 export default defineComponent({
   name: 'PasswordForgotComponent',
@@ -76,7 +61,7 @@ export default defineComponent({
     }
   },
 
-  setup (props, ctx) {
+  setup(props, ctx) {
     const { qForm } = toRefs(props)
     const lang = useLang()
     const { emit } = ctx
@@ -85,16 +70,18 @@ export default defineComponent({
       validate: () => Promise<void>
     }>()
     const user = ref({
-      email: '',
+      email: ''
     })
-    const validations = computed<Record<string, ((val: string) => (boolean | string))[]>>(() => ({
+    const validations = computed<
+      Record<string, ((val: string) => boolean | string)[]>
+    >(() => ({
       email: [
-        val => !!val || lang.value.auth.validations.required,
-        val => isEmail(val) || lang.value.auth.validations.email
+        (val) => !!val || lang.value.auth.validations.required,
+        (val) => isEmail(val) || lang.value.auth.validations.email
       ]
     }))
 
-    function submit (evt: any) {
+    function submit(evt: any) {
       form.value?.validate().then(() => {
         emit('submit', user.value)
         if (qForm.value) evt.target.submit()

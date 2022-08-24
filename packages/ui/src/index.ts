@@ -1,4 +1,3 @@
-
 import * as VuePlugin from './vue-plugin'
 import LoginComponent from './components/LoginComponent.vue'
 import RegisterComponent from './components/RegisterComponent.vue'

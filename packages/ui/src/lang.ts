@@ -1,5 +1,5 @@
 export interface Language {
-  lang: string,
+  lang: string
   auth: {
     submit: string
     ok: string
@@ -11,7 +11,7 @@ export interface Language {
       username: string
       password: string
       repeatPassword: string
-    },
+    }
     login: {
       login: string
       passwordForgot: string
@@ -19,44 +19,45 @@ export interface Language {
       invalidCredentials: string
       rememberMe: string
       registerMessage: string
-      register: string,
+      register: string
       createAccount: string
-    },
+    }
     consent: {
       message: (name: string) => string
-      deny: string,
+      deny: string
       allow: string
-    },
+    }
     register: {
       register: string
       invalidData: string
       alreadyRegistered: string
       accountCreated: string
+      verificationRequired: string
       checkEmail: (email: string) => string
       error: string
-    },
+    }
     verification: {
       success: string
       failed: string
       slider: string
-    },
+    }
     logout: {
       confirmation: string
       confirm: string
       logout: string
       cancel: string
-    },
+    }
     password: {
       forgot: {
         header: string
         checkEmail: string
         unknownEmail: string
-      },
+      }
       reset: {
         header: string
         success: string
       }
-    },
+    }
     validations: {
       required: string
       passwordLength: (length: string | number) => string
@@ -67,11 +68,12 @@ export interface Language {
   }
 }
 
-import { ref, Ref } from 'vue'
+import type { Ref } from 'vue';
+import { ref } from 'vue'
 import en from './lang/en-us'
 export const lang = ref(en)
 // @ts-ignore
-const locales = import.meta.glob('./lang/*.ts') 
+const locales = import.meta.glob('./lang/*.ts')
 
 export const defineLang = (lang: Language) => {
   return lang
@@ -83,12 +85,12 @@ export const useLang = () => {
 
 export const loadLang = async (locale: string) => {
   try {
+    // @ts-ignore
     const data = (await locales[`./lang/${locale}.ts`]()).default
 
     if (data) {
       lang.value = data
     }
-
   } catch (e) {
     console.log(e)
     throw new Error(`Failed to load ${locale} locale.`)

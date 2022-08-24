@@ -1,21 +1,12 @@
 <template>
-  <q-card
-    v-if="lang"
-    square
-    style="width: 400px; padding:50px"
-  >
+  <q-card v-if="lang" square style="width: 400px; padding: 50px">
     <q-card-section>
       <div class="text-h6">
         {{ lang.auth.password.reset.header }}
       </div>
     </q-card-section>
 
-    <q-form
-      class="q-gutter-md"
-      ref="form"
-      @submit="submit"
-      v-bind="qForm"
-    >
+    <q-form class="q-gutter-md" ref="form" @submit="submit" v-bind="qForm">
       <q-card-section>
         <q-input
           id="password"
@@ -47,9 +38,13 @@
         >
           <template v-slot:append>
             <q-icon
-              :name="showPassword.repeatPassword ? 'visibility' : 'visibility_off'"
+              :name="
+                showPassword.repeatPassword ? 'visibility' : 'visibility_off'
+              "
               class="cursor-pointer"
-              @click="showPassword.repeatPassword = !showPassword.repeatPassword"
+              @click="
+                showPassword.repeatPassword = !showPassword.repeatPassword
+              "
             />
           </template>
         </q-input>
@@ -113,7 +108,7 @@ export default defineComponent({
     }
   },
 
-  setup (props, ctx) {
+  setup(props, ctx) {
     const { qForm } = toRefs(props)
     const lang = useLang()
     const { emit } = ctx
@@ -123,19 +118,21 @@ export default defineComponent({
       validate: () => Promise<void>
     }>()
     const user = ref({
-      password: '',
+      password: ''
     })
     const repeatPassword = ref('')
-    const validations = computed<Record<string, ((val: string) => (boolean | string))[]>>(() => ({
+    const validations = computed<
+      Record<string, ((val: string) => boolean | string)[]>
+    >(() => ({
       password: [
-        val => !!val || lang.value.auth.validations.required,
-        val =>
+        (val) => !!val || lang.value.auth.validations.required,
+        (val) =>
           val.length > minPasswordLength.value ||
           lang.value.auth.validations.passwordLength(minPasswordLength.value)
       ],
       repeatPassword: [
-        val => !!val || lang.value.auth.validations.required,
-        val =>
+        (val) => !!val || lang.value.auth.validations.required,
+        (val) =>
           equals(val, user.value.password) ||
           lang.value.auth.validations.passwordMatch
       ]
@@ -145,7 +142,7 @@ export default defineComponent({
       repeatPassword: false
     })
 
-    function submit (evt: any) {
+    function submit(evt: any) {
       form.value?.validate().then(() => {
         emit('submit', { password: user.value.password }, token.value)
         if (qForm.value) evt.target.submit()
