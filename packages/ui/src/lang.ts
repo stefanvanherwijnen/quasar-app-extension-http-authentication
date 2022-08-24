@@ -68,7 +68,7 @@ export interface Language {
   }
 }
 
-import type { Ref } from 'vue';
+import type { Ref } from 'vue'
 import { ref } from 'vue'
 import en from './lang/en-us'
 export const lang = ref(en)

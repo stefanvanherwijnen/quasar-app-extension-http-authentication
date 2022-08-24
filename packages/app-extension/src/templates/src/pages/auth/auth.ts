@@ -15,7 +15,7 @@ import {
   useLang
 } from 'quasar-ui-http-authentication'
 import type { Router } from 'vue-router'
-import type { Ref } from 'vue';
+import type { Ref } from 'vue'
 import { ref } from 'vue'
 import { useQuasar } from 'quasar'
 
