@@ -2,5 +2,23 @@
   "0 debug pnpm:scope": {
     "selected": 1,
     "workspacePrefix": "/home/stefan/HomeLaptop/Projects/Personal/quasar-app-extension-http-authentication"
+  },
+  "1 info pnpm": {
+    "err": {
+      "name": "Error",
+      "message": "not found: simple-git-hooks",
+      "code": "ENOENT",
+      "stack": "Error: not found: simple-git-hooks\n    at getNotFoundError (/snapshot/dist/pnpm.cjs)\n    at Function.whichSync [as sync] (/snapshot/dist/pnpm.cjs)\n    at getCommandAbsolutePathSync (/snapshot/dist/pnpm.cjs)\n    at default_1 (/snapshot/dist/pnpm.cjs)\n    at /snapshot/dist/pnpm.cjs"
+    }
+  },
+  "2 error pnpm": {
+    "code": "ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL",
+    "prefix": "/home/stefan/HomeLaptop/Projects/Personal/quasar-app-extension-http-authentication",
+    "err": {
+      "name": "pnpm",
+      "message": "not found: simple-git-hooks",
+      "code": "ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL",
+      "stack": "Error: not found: simple-git-hooks\n    at getNotFoundError (/snapshot/dist/pnpm.cjs)\n    at Function.whichSync [as sync] (/snapshot/dist/pnpm.cjs)\n    at getCommandAbsolutePathSync (/snapshot/dist/pnpm.cjs)\n    at default_1 (/snapshot/dist/pnpm.cjs)\n    at /snapshot/dist/pnpm.cjs"
+    }
   }
 }

@@ -39,11 +39,11 @@ importers:
   packages/app-extension:
     specifiers:
       '@types/node': ^16.3.0
-      quasar-ui-http-authentication: ^2.0.1-beta.19
+      quasar-ui-http-authentication: ^3.0.0-alpha.0
       rimraf: ^3.0.2
       typescript: ^4.5.2
     dependencies:
-      quasar-ui-http-authentication: 2.0.3
+      quasar-ui-http-authentication: link:../ui
     devDependencies:
       '@types/node': 16.10.3
       rimraf: 3.0.2
@@ -54,15 +54,15 @@ importers:
       '@quasar/extras': ^1.12.1
       '@stefanvh/quasar-app-vite': ^0.6.1
       quasar: ^2.3.3
-      quasar-app-extension-http-authentication: ^2.0.1-beta.20
-      quasar-ui-http-authentication: ^2.0.1-beta.20
+      quasar-app-extension-http-authentication: ^3.0.0-alpha.0
+      quasar-ui-http-authentication: ^3.0.0-alpha.0
       vue: ^3.2.20
       vue-router: ^4.0.11
     dependencies:
       '@quasar/extras': 1.12.1
       quasar: 2.3.3
-      quasar-app-extension-http-authentication: 2.0.3_smoivgjnt3jg4d7vc67weoti54
-      quasar-ui-http-authentication: 2.0.3_smoivgjnt3jg4d7vc67weoti54
+      quasar-app-extension-http-authentication: link:../app-extension
+      quasar-ui-http-authentication: link:../ui
       vue: 3.2.22
       vue-router: 4.0.12_vue@3.2.22
     devDependencies:
@@ -6808,43 +6808,6 @@ packages:
     engines: {node: '>=0.6'}
     dev: true
 
-  /quasar-app-extension-http-authentication/2.0.3_smoivgjnt3jg4d7vc67weoti54:
-    resolution: {integrity: sha512-Azf2Dxcm6xCOHJaUbg9FozMPd4NHCSlnYHLFhdnFEYu0HtbWEt3PIWbNlHcAoiQ53h3tasaDMx4yDYPfSjh4fw==}
-    engines: {node: '>= 8.9.0', npm: '>= 5.6.0', yarn: '>= 1.6.0'}
-    peerDependencies:
-      quasar: ^2.3.2
-      vue: ^3.2.23
-    dependencies:
-      quasar: 2.3.3
-      quasar-ui-http-authentication: 2.0.3_smoivgjnt3jg4d7vc67weoti54
-      vue: 3.2.22
-    transitivePeerDependencies:
-      - '@quasar/extras'
-    dev: false
-
-  /quasar-ui-http-authentication/2.0.3:
-    resolution: {integrity: sha512-4ANGWxHNwIgfeu6VAmFNt/xP7JbyZHZObOH3k32i2CTTUuLRYylAPB8wbSBx0MJ0ANi/Ucxe4YgTwPb6IgxceA==}
-    peerDependencies:
-      '@quasar/extras': ^1.12.1
-      quasar: ^2.3.3
-      vue: ^3.2.23
-    dependencies:
-      validator: 13.6.0
-    dev: false
-
-  /quasar-ui-http-authentication/2.0.3_smoivgjnt3jg4d7vc67weoti54:
-    resolution: {integrity: sha512-4ANGWxHNwIgfeu6VAmFNt/xP7JbyZHZObOH3k32i2CTTUuLRYylAPB8wbSBx0MJ0ANi/Ucxe4YgTwPb6IgxceA==}
-    peerDependencies:
-      '@quasar/extras': ^1.12.1
-      quasar: ^2.3.3
-      vue: ^3.2.23
-    dependencies:
-      '@quasar/extras': 1.12.1
-      quasar: 2.3.3
-      validator: 13.6.0
-      vue: 3.2.22
-    dev: false
-
   /quasar/2.3.3:
     resolution: {integrity: sha512-0Q/OWX61IHIIljNUBTibR4bB0uXzR+ZtSa8y8jxerNiRoiIbqdo+FMHCRBvPr/3RUDqQ680YgHVjQEDpUCvM1Q==}
     engines: {node: '>= 10.18.1', npm: '>= 6.13.4', yarn: '>= 1.21.1'}
@@ -8241,11 +8204,6 @@ packages:
       spdx-correct: 3.1.1
       spdx-expression-parse: 3.0.1
     dev: true
-
-  /validator/13.6.0:
-    resolution: {integrity: sha512-gVgKbdbHgtxpRyR8K0O6oFZPhhB5tT1jeEHZR0Znr9Svg03U0+r9DXWMrnRAB+HtCStDQKlaIZm42tVsVjqtjg==}
-    engines: {node: '>= 0.10'}
-    dev: false
 
   /validator/13.7.0:
     resolution: {integrity: sha512-nYXQLCBkpJ8X6ltALua9dRrZDHVYxjJ1wgskNt1lH9fzGjs3tgojGSCBjmEPwkWS1y29+DrizMTW19Pr9uB2nw==}
