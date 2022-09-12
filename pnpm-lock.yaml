@@ -39,7 +39,7 @@ importers:
   packages/app-extension:
     specifiers:
       '@types/node': ^16.3.0
-      quasar-ui-http-authentication: ^3.0.0-alpha.0
+      quasar-ui-http-authentication: ^3.0.0
       rimraf: ^3.0.2
       typescript: ^4.5.2
     dependencies:
