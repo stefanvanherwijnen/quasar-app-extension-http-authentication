@@ -53,11 +53,11 @@
         />
         <br />
         <q-btn
-          v-if="passwordForgotUrl"
+          v-if="passwordUpdateUrl"
           :label="lang.auth.login.passwordForgot"
           size="sm"
           flat
-          :to="passwordForgotUrl"
+          :to="passwordUpdateUrl"
         ></q-btn>
         <!-- <a class="cursor-pointer text-blue text-underline" @click="toPasswordForgot">{{ lang.auth.login.passwordForgot }}</a> -->
       </q-card-section>
@@ -128,7 +128,7 @@ export default defineComponent({
     registerUrl: {
       type: String
     },
-    passwordForgotUrl: {
+    passwordUpdateUrl: {
       type: String
     }
   },

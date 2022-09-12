@@ -54,74 +54,48 @@
 </template>
 
 <script lang="ts">
+export default {
+  name: 'ConsentComponent'
+}
+</script>
+
+<script setup lang="ts">
 import { defineComponent, toRefs } from 'vue'
 import { useLang } from '../lang'
-import {
-  QList,
-  QBtn,
-  QIcon,
-  QItem,
-  QAvatar,
-  QCard,
-  QCardSection,
-  QItemSection,
-  QCardActions,
-  QForm
-} from 'quasar'
 
-export default defineComponent({
-  name: 'ConsentComponent',
-  components: {
-    QList,
-    QBtn,
-    QIcon,
-    QItem,
-    QAvatar,
-    QCard,
-    QCardSection,
-    QItemSection,
-    QCardActions,
-    QForm
-  },
-  props: {
-    client: {
-      type: Object
-    },
-    scopes: {
-      type: Array
-    },
-    claims: {
-      type: Array
-    },
-    resourceScopes: {
-      type: Array
-    },
-    denyForm: {
-      type: Object
-    },
-    allowForm: {
-      type: Object
-    }
-  },
-  setup(props, ctx) {
-    const { emit } = ctx
-    const { allowForm, denyForm } = toRefs(props)
-    const lang = useLang()
-
-    const allow = (evt: any) => {
-      emit('allow')
-      if (allowForm.value) evt.target.submit()
-    }
-    const deny = (evt: any) => {
-      emit('deny')
-      if (denyForm.value) evt.target.submit()
-    }
-
-    return {
-      lang,
-      allow,
-      deny
-    }
+const props = defineProps<{
+  client: {
+    clientName: string
+    logoUri: string
+    clientUri: string
   }
-})
+  scopes: {
+    name: string
+  }[]
+  claims: {
+    name: string
+  }[]
+  resourceScopes: {
+    name: string
+  }[]
+  allowForm?: any
+  denyForm?: any
+}>()
+
+const emit = defineEmits<{
+  (e: 'allow'): void
+  (e: 'deny'): void
+}>()
+
+const { allowForm, denyForm } = toRefs(props)
+const lang = useLang()
+
+const allow = (evt: any) => {
+  emit('allow')
+  if (allowForm?.value) evt.target.submit()
+}
+const deny = (evt: any) => {
+  emit('deny')
+  if (denyForm?.value) evt.target.submit()
+}
 </script>

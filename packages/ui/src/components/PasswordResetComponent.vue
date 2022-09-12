@@ -127,7 +127,7 @@ export default defineComponent({
       password: [
         (val) => !!val || lang.value.auth.validations.required,
         (val) =>
-          val.length > minPasswordLength.value ||
+          val.length >= minPasswordLength.value ||
           lang.value.auth.validations.passwordLength(minPasswordLength.value)
       ],
       repeatPassword: [
@@ -144,7 +144,10 @@ export default defineComponent({
 
     function submit(evt: any) {
       form.value?.validate().then(() => {
-        emit('submit', { password: user.value.password }, token.value)
+        emit('submit', {
+          password: user.value.password,
+          passwordResetToken: token.value
+        })
         if (qForm.value) evt.target.submit()
       })
     }

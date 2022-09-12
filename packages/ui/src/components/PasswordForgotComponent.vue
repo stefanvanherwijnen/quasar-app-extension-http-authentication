@@ -37,12 +37,13 @@ import { defineComponent, ref, computed, toRefs } from 'vue'
 import isEmail from 'validator/es/lib/isEmail.js'
 
 import { useLang } from '../lang'
-import { QCard, QCardSection, QCardActions, QForm, QInput } from 'quasar'
+import { QCard, QBtn, QCardSection, QCardActions, QForm, QInput } from 'quasar'
 
 export default defineComponent({
   name: 'PasswordForgotComponent',
   components: {
     QCard,
+    QBtn,
     QCardSection,
     QCardActions,
     QForm,

@@ -1,17 +1,23 @@
 {
   "compilerOptions": {
     "target": "esnext",
+    "useDefineForClassFields": true,
     "module": "esnext",
-    "lib": ["ES2020", "DOM"],
-    "strict": true,
-    "skipLibCheck": true,
     "moduleResolution": "node",
+    "strict": true,
+    "jsx": "preserve",
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
     "declaration": true,
-    "outDir": "dist",
-    "emitDeclarationOnly": true,
-    "declarationDir": "./dist/types",
-    "isolatedModules": true,
-    "types": ["vite/client"]
+    "lib": ["esnext", "dom"],
+    "types": ["vite/client"],
+    "outDir": "./dist"
   },
-  "include": ["./src"]
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ]
 }

@@ -1,3 +1,5 @@
 node_modules/
 yalc.lock
 .yalc/
+tsconfig.build.plugin.json
+components.d.ts

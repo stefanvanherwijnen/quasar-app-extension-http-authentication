@@ -10,12 +10,6 @@
 const install = function (api: any) {
   api.compatibleWith('quasar', '^2.0.0-beta.12')
   api.compatibleWith('@quasar/app', '^3.0.0-beta.11')
-
-  api.render('./templates')
-
-  console.log(
-    'Do not forget to add the corresponding routes to your routes file.'
-  )
 }
 
 export default install
