@@ -14,7 +14,7 @@
     "./boot": "./dist/boot/register.js"
   },
   "scripts": {
-    "build": "rimraf ./dist && tsc && cp -r ./src/templates/ ./dist/templates/"
+    "build": "rimraf ./dist && tsc"
   },
   "repository": {
     "type": "git",
